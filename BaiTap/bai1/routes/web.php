@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\tinhchietkhau;
+use App\Http\Controllers\dich;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +32,12 @@ use App\Http\Controllers\tinhchietkhau;
 // });
 
 Route::get('index', [loginController::class , 'index'])->name('index');
-            //url                  //function
+            //url                  ``````````//function
 Route::post('check', [loginController::class , 'check'])->name('check');
 
 Route::get('index1', [tinhchietkhau::class , 'index'])->name('index1');
 Route::post('calculate', [tinhchietkhau::class , 'calculate'])->name('calculate');
+
+Route::get('index2', [dich::class , 'index'])->name('index2');
+Route::post('translate', [dich::class , 'translate'])->name('translate');
 
