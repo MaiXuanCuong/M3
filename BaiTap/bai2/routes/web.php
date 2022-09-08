@@ -39,26 +39,26 @@ Route::prefix('customer')->group(function () {
     });
 
     Route::get('create', function () {
-    //   echo  'Hiển thị Form tạo khách hàng';
+      echo  'Hiển thị Form tạo khách hàng';
     });
 
     Route::post('store', function () {
-        // Xử lý lưu dữ liệu tạo khách hàng thong qua phương thức POST từ form
+        echo 'Xử lý lưu dữ liệu tạo khách hàng thong qua phương thức POST từ form';
     });
 
-    Route::get('{id}/show', function () {
-        // Hiển thị thông tin chi tiết khách hàng có mã định danh id
+    Route::get('show/{id?}', function ($id = 1) {
+        echo  'Hiển thị thông tin chi tiết khách hàng có mã định danh id';
+    })->name('show');
+
+    Route::get('edit/{id?}', function ($id = 1) {
+        echo  'Hiển thị Form chỉnh sửa thông tin khách hàng';
     });
 
-    Route::get('{id}/edit', function () {
-        // Hiển thị Form chỉnh sửa thông tin khách hàng
+    Route::patch('update/{id?}', function ($id = 1) {
+        echo 'xử lý lưu dữ liệu thông tin khách hàng được chỉnh sửa thông qua PATCH từ form';
     });
 
-    Route::patch('{id}/update', function () {
-        // xử lý lưu dữ liệu thông tin khách hàng được chỉnh sửa thông qua PATCH từ form
-    });
-
-    Route::delete('{id}', function () {
-        // Xóa thông tin dữ liệu khách hàng
+    Route::delete('{id?}', function ($id = 1) {
+        echo  'Xóa thông tin dữ liệu khách hàng';
     });
 });
