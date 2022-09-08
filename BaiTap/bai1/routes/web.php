@@ -41,3 +41,6 @@ Route::post('calculate', [tinhchietkhau::class , 'calculate'])->name('calculate'
 Route::get('index2', [dich::class , 'index'])->name('index2');
 Route::post('translate', [dich::class , 'translate'])->name('translate');
 
+
+
+

@@ -16,3 +16,28 @@ use Illuminate\Support\Facades\Route;
 Route::get('hai', function () {
     return view('welcome');
 });
+Route::get('index3', function () {
+    // gọi view retrn view
+
+// echo "<br>".route('index3');
+// echo "</br>".route('create');
+$params =[
+
+];
+return view('',$params);
+
+})->name('index3');
+
+Route::get('/create', function(){
+    dd("Trang Thêm Mới");
+})->name('create');
+
+Route::put('/update/{id}', function(Request $request, $id){
+    dd("Trang Update".$id);
+});
+Route::post('/store', function(Request $request){
+dd($request->all());
+});
+Route::get('/edit/{id}',function($id){
+dd('Trang Chỉnh Sửa'.$id);
+});
