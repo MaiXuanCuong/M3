@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\tinhchietkhau;
-use App\Http\Controllers\dich;
+// use App\Http\Controllers\dich;
 
 /*
 |--------------------------------------------------------------------------
