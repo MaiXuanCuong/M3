@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +21,9 @@ Route::get('/', function () {
     return view('index');
 });
 Route::post('/check-email',[UserController::class, 'validationEmail'])->name('checkEmail');
+
+
+Route::get('customer',[CustomerController::class, 'index'])->name('customer');
+Route::get('show',[CustomerController::class, 'show'])->name('show');
+Route::put('edit',[CustomerController::class, 'edit'])->name('edit');
+Route::delete('delete',[CustomerController::class, 'destroy'])->name('delete');
