@@ -1,1 +1,1 @@
-<h1>Update</h1>
+<h1>Update{{ $test }}</h1>

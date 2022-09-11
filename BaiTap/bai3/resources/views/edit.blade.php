@@ -1,1 +1,1 @@
-<h1>edit</h1>
+<h1>edit{{ $test }}</h1>

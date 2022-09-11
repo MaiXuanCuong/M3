@@ -23,7 +23,12 @@
         <td></td>
         <td></td>
         <td>
-            <a href="{{route('show')}}">Xem</a> | <a href="{{ route('edit') }}">Sửa</a> | <a href="{{ route("delete") }}">Xóa</a>
+            <a href='show/2'>Xem</a> | <a href='edit/2'>Sửa</a> | 
+            <form action="delete/2" method="post">
+                    @method("delete")
+                    @csrf
+                <button type="submit">delete</button>
+            </form>
                     {{-- tên của route --}}
         </td>
     </tr>

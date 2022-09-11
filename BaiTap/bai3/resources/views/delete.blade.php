@@ -1,1 +1,1 @@
-<h1>delete</h1>
+<h1>delete{{ $test }}</h1>

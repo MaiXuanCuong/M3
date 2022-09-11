@@ -45,10 +45,10 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
         //
-        $test = 'trang show';
+        $test = 'trang show'.$id;
         return view('show', compact('test'));
     }
 
@@ -58,10 +58,10 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
         //
-        $test = 'trang edit';
+        $test = 'trang edit'.$id;
         return view('edit', compact('test'));
     }
 
@@ -72,9 +72,11 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update()
+    public function update($id)
     {
         //
+        $test = 'trang update'.$id;
+        return view('update', compact('test'));
     }
 
     /**
@@ -83,10 +85,10 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy($id)
     {
         //
-        $test = 'trang xóa';
+        $test = 'trang xóa'.$id;
         return view('delete', compact('test'));
     }
 }

@@ -24,6 +24,7 @@ Route::post('/check-email',[UserController::class, 'validationEmail'])->name('ch
 
 
 Route::get('customer',[CustomerController::class, 'index'])->name('customer');
-Route::get('show',[CustomerController::class, 'show'])->name('show');
-Route::put('edit',[CustomerController::class, 'edit'])->name('edit');
-Route::delete('delete',[CustomerController::class, 'destroy'])->name('delete');
+Route::get('show/{id?}',[CustomerController::class, 'show'])->name('show');
+Route::get('edit/{id?}',[CustomerController::class, 'edit'])->name('edit');
+Route::put('update/{id?}',[CustomerController::class, 'update'])->name('update');
+Route::delete('delete/{id?}',[CustomerController::class, 'destroy']) ;
