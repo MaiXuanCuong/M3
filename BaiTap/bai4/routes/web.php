@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,14 @@ use App\Http\Controllers\CustomerController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::group(['prefix' => 'customers'], function (){
-    Route::get('/',[CustomerController::class,'index'])->name('customers');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// Route::group(['prefix' => 'customers'], function (){
+//     Route::get('/',[CustomerController::class,'index'])->name('customers');
+// });
+
+Route::get('index',[TaskController::class,'index'])->name('index');
+Route::get('create',[TaskController::class,'create'])->name('create');
+Route::post('store',[TaskController::class,'store'])->name('store');
+// Route::put('store',[TaskController::class,'store'])->name('store');
