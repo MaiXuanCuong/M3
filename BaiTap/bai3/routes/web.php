@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\CaculaterController ;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +29,6 @@ Route::get('show/{id?}',[CustomerController::class, 'show'])->name('show');
 Route::get('edit/{id?}',[CustomerController::class, 'edit'])->name('edit');
 Route::put('update/{id?}',[CustomerController::class, 'update'])->name('update');
 Route::delete('delete/{id?}',[CustomerController::class, 'destroy']) ;
+
+Route::get('caculater',[CaculaterController::class, 'caculaterController'])->name('caculater');
+Route::post('caculater',[CaculaterController::class, 'caculaterController'])->name('caculater');
