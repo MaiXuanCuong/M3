@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class TaskController extends Controller
 {
@@ -50,5 +51,13 @@ class TaskController extends Controller
         $message = "Tạo Task $request->inputTitle thành công!";
         Session::flash('create-success', $message);
         return redirect()->route('index', compact('message'));
+    }
+    public function destroy($id)
+    {
+        $task=Task::findOrFail($id);
+        $images = 'public/images/'.$task->image;
+        Storage::delete($images);
+        $task->delete();
+        return redirect()->route('index');
     }
 }

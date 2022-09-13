@@ -21,15 +21,16 @@
         @if(!isset($tasks))
         <h5 class="text-primary">Dữ liệu không tồn tại!</h5>
     @else
-        <table class="table table-bordered">
+        <table class="col-xl-12 table-bordered">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Task title</th>
-                <th scope="col">Content</th>
-                <th scope="col">Created</th>
-                <th scope="col">Due Date</th>
-                <th scope="col">img</th>
+                <th class="col-1">#</th>
+                <th class="col-2">Task title</th>
+                <th class="col-2">Content</th>
+                <th class="col-2">Created</th>
+                <th class="col-2">Due Date</th>
+                <th class="col-2">img</th>
+                <th class="col-2">Thao tác</th>
             </tr>
             </thead>
             <tbody>
@@ -46,7 +47,14 @@
                         <td>{{ $task->created_at }}</td>
                         <td>{{ $task->due_date }}</td>
                         <td style="height: 150px">
-                            <img src="{{ asset('storage/app/public/images/'.$task->image) }}" alt="" style="width: 150px">
+                            <img src="{{ asset('storage/images/'.$task->image) }}" alt="" style="width: 150px">
+                        </td>
+                        <td>
+                            <form action="{{ route('destroy', $task->id) }}" method='post'>
+                            @csrf
+                            @method('delete')
+                            <button type="submit">Xóa</button>
+                        </form>
                         </td>
                     </tr>
                 @endforeach

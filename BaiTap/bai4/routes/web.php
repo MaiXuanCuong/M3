@@ -22,7 +22,12 @@ use App\Http\Controllers\TaskController;
 //     Route::get('/',[CustomerController::class,'index'])->name('customers');
 // });
 
-Route::get('index',[TaskController::class,'index'])->name('index');
+Route::get('/',[TaskController::class,'index'])->name('index');
 Route::get('create',[TaskController::class,'create'])->name('create');
 Route::post('store',[TaskController::class,'store'])->name('store');
-// Route::put('store',[TaskController::class,'store'])->name('store');
+
+Route::delete('destroy/{id}',[TaskController::class,'destroy'])->name('destroy');
+
+Route::get('test',function(){
+return view('admin.products.list');
+});
