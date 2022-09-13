@@ -53,12 +53,23 @@
                             <form action="{{ route('destroy', $task->id) }}" method='post'>
                             @csrf
                             @method('delete')
-                            <button type="submit">Xóa</button>
+                            <button type="submit" class="btn btn-danger" onclick="xacnhan()">Xóa</button>
+                        
                         </form>
                         </td>
                     </tr>
                 @endforeach
             @endif
+            <script>
+                function xacnhan() {
+                    confirm('Bạn Chắc Chắn Xóa Không')
+                    if(confirm){
+                        return true
+                    } else {
+                        return false
+                    }
+                }
+            </script>
             <div class="links">
                 <a href="{{ route('create') }}">Add new task</a>
                 <a href="{{ route('index') }}">Tasks list</a>

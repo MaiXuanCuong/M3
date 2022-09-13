@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.categories.index');
-});
+Route::get('/', [CategoriesController::class,'index'])->name('/');
+Route::get('/add', [CategoriesController::class,'create'])->name('add');
+
+Route::post('/store', [CategoriesController::class, 'store'])->name('categories.store');
+
+Route::delete('/delete/{id}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
+
+Route::get('/edit/{id}', [CategoriesController::class, 'edit'])->name('categories.edit');
+
+Route::put('/update/{id}', [CategoriesController::class, 'update'])->name('categories.update');
+

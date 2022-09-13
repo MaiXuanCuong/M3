@@ -69,7 +69,9 @@
       <!-- .app-main -->
       <main class="app-main">
         <!-- .wrapper -->
+        <div class="container">
         @yield('content')<!-- /.wrapper -->
+      </div>
       </main><!-- /.app-main -->
     </div><!-- /.app -->
     <!-- BEGIN BASE JS -->
