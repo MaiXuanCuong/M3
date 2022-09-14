@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('color');
             $table->string('price_product');
+            $table->string('configuration');
             $table->string('garbage_can');
             $table->timestamps();
         });

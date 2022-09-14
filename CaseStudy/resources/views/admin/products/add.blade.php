@@ -53,19 +53,17 @@
                   </div>
                     <div class="form-group">
                       <label for="inputTitle">Mô Tả</label>
-                      <input type="text"
-                            class="form-control"
-                            id="inputTitle"
-                            name="describe"
-                            required>
+                     <textarea class="form-control"
+                     id="inputTitle"
+                     name="describe" cols="30" rows="5"></textarea>
+                            
                   </div>
                   <div class="form-group">
                     <label for="inputTitle">Thông Số Kỹ Thuật</label>
-                    <input type="text"
-                          class="form-control"
-                          id="inputTitle"
-                          name="specifications"
-                          required>
+                  <textarea  class="form-control"
+                  id="inputTitle"
+                  name="specifications" cols="30" rows="5"></textarea>
+                         
                 </div>
                 <div class="form-group">
                   <label for="inputTitle">Số Lượng</label>
@@ -83,6 +81,14 @@
              name="color"
              required>
   </div>
+  <div class="form-group">
+    <label for="inputTitle">Cấu Hình</label>
+    <input type="text"
+           class="form-control"
+           id="inputTitle"
+           name="configuration"
+           required>
+          </div>
   <div class="form-group">
     <label for="inputTitle">Giá Theo Cấu Hình</label>
     <input type="text"
