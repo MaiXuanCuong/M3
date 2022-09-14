@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Category;
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 class CategoriesController extends Controller
 {
     //
@@ -21,7 +21,8 @@ class CategoriesController extends Controller
         $categories = new Category();
         $categories->name = $request->name;
         $categories->save();
-        return redirect()->route('/');
+        Session::flash('success', 'Thêm thành công '.$request->name);
+        return redirect()->route('categories');
     }
     public function edit($id){
         $item = Category::find($id);
@@ -31,11 +32,11 @@ class CategoriesController extends Controller
         $item = Category::find($id);
         $item->name = $request->name;
         $item->save();
-        return redirect()->route('/');
+        return redirect()->route('categories');
     }
     public function destroy($id){
         $item = Category::findOrFail($id);
         $item->delete();
-        return redirect()->route('/');
+        return redirect()->route('categories');
     }
 }

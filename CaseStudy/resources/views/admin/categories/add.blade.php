@@ -34,6 +34,7 @@
             </div>
            
             <button type="submit" class="btn btn-primary">Thêm</button>
+            <a class="btn btn-danger" href="{{ route('categories') }}">Hủy</a>
         </form>
     </div>
 </div>

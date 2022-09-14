@@ -20,24 +20,47 @@
 <div class="flex-center position-ref full-height">
     <div class="content">
         <div class="title m-b-md">
-            <h1>Chỉnh Sửa Danh Mục</h1>
+            <h1>Sản Phẩm</h1>
+            <a class="btn btn-primary" href="{{ route('products.add') }}">Thêm Sản Phẩm</a>
+            @if (Session::has('success'))
+            <p class="text-success">
+                <i class="fa fa-check" aria-hidden="true"></i>
+                {{ Session::get('success') }}
+            </p>
+        @endif
         </div>
-        <form class="text-left" method="post" action="{{ route('categories.update',$item->id) }}">
-            @csrf
-            @method('PUT')
-            <div class="form-group">
-                <label for="inputTitle">Tên Danh Mục</label>
-                <input type="text"
-                       class="form-control"
-                       id="inputTitle"
-                       name="name"
-                       value="{{ $item->name }}"
-                       required>
-            </div>
-           
-            <button type="submit" class="btn btn-primary">Lưu</button>
-            <a class="btn btn-danger" href="{{ route('categories') }}">Hủy</a>
-        </form>
+        <br>
+        <table style="text-align: center" class="table table-dark table-hover">
+            <tr>
+                
+                <td><i>STT</i></td>
+                <td><i>Name</i></td>
+                <td><i>Thao Tác</i></td>
+                
+            </tr>
+        @foreach($items as $key => $item)
+         
+        <tr>
+
+            <td>
+                {{ $key + 1 }}   
+
+            </td>
+            <td>
+
+                {{ $item->name }}   
+            </td>
+            <td>
+                <form action="{{ route('products.destroy',$item->id) }}" method="post">
+                    <a class="btn btn-primary" href="{{ route('products.edit',$item->id) }}">Sửa</a>
+                    @csrf
+                    @method('delete')
+                    <button class="btn btn-danger" type="submit">Xóa</button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
+    </table>
     </div>
 </div>
 <!-- Bootstrap JS -->

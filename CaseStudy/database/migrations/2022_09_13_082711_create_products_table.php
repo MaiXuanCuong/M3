@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger("price");
-            $table->longText('describe');
+            $table->text('describe');
             $table->bigInteger('quantity');
             $table->text('specifications');
             $table->string('image');

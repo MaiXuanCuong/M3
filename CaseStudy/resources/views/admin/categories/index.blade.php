@@ -6,7 +6,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   </head>
   <body>
@@ -22,10 +21,16 @@
     <div class="content">
         <div class="title m-b-md">
             <h1>Danh Mục</h1>
-            <a class="btn btn-primary" href="{{ route('add') }}">Thêm Danh Mục</a>
+            <a class="btn btn-primary" href="{{ route('categories.add') }}">Thêm Danh Mục</a>
+            @if (Session::has('success'))
+            <p class="text-success">
+                <i class="fa fa-check" aria-hidden="true"></i>
+                {{ Session::get('success') }}
+            </p>
+        @endif
         </div>
         <br>
-        <table style="text-align: center" class="table table-warning  table-hover">
+        <table style="text-align: center" class="table table-dark table-hover">
             <tr>
                 
                 <td><i>STT</i></td>
