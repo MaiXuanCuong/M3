@@ -112,11 +112,9 @@
   name="inputFile">
 </div>
 <div>
-  <img src="{{ $item->image }}" alt="">
+  
+  <img width="100px" height="130px" src="{{ asset($item->image) }}" alt="">
 </div>
-
-
-           
             <button type="submit" class="btn btn-primary">Lưu</button>
             <a class="btn btn-danger btn-xs" href="{{ route('products') }}">Hủy</a>
         </form>

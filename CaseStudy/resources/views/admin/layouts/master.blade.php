@@ -29,7 +29,10 @@
         "headline": "Starter Template",
         "@context": "http://schema.org"
       }
+      
     </script><!-- End SEO tag -->
+    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+
     <!-- FAVICONS -->
     <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/apple-touch-icon.png')}}">
     <link rel="shortcut icon" href="{{ asset('assets/favicon.ico')}}">
@@ -70,6 +73,7 @@
       <main class="app-main">
         <!-- .wrapper -->
         <div class="container">
+          @include('sweetalert::alert')
         @yield('content')<!-- /.wrapper -->
       </div>
       </main><!-- /.app-main -->
