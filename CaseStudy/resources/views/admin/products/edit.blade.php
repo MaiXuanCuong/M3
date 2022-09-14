@@ -39,7 +39,7 @@
                       <select name="category_id" id="" class="form-control">
                         @foreach($categories as $category)
                         
-                        <option value="{{$category->id }}">{{ $category->name }}</option>
+                        <option <?=$category->id == $item->category_id ? "selected" : " " ?> value="{{$category->id }}">{{ $category->name }}</option>
                         @endforeach
                       </select>
                       
@@ -58,7 +58,7 @@
                       <label for="inputTitle">Mô Tả</label>
                     <textarea class="form-control"
                     id="inputTitle"
-                    name="describe" cols="30" rows="50">{{$item->describe}}</textarea>
+                    name="describe" cols="30" rows="5">{{$item->describe}}</textarea>
                   </div>
                   <div class="form-group">
                     <label for="inputTitle">Thông Số Kỹ Thuật</label>

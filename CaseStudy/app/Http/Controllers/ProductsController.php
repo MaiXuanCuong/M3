@@ -13,6 +13,9 @@ class ProductsController extends Controller
     //
     public function index(){
         $items = Product::all();
+
+        // dd($items[0]->category->name);
+        // $items = Product::all();
         return view('admin.products.index', compact('items'));
     }
     public function create(){

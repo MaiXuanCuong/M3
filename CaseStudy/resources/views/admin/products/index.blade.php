@@ -34,7 +34,10 @@
             <tr>
                 
                 <td><i>STT</i></td>
-                <td><i>Name</i></td>
+                <td><i>Sản Phẩm</i></td>
+                <td><i>Danh Mục</i></td>
+                <td><i>Giá</i></td>
+                <td><i>Ảnh</i></td>
                 <td><i>Thao Tác</i></td>
                 
             </tr>
@@ -50,6 +53,19 @@
 
                 {{ $item->name }}   
             </td>
+            <td>
+
+                {{ $item->category->name }}   
+            </td>
+            <td>
+
+                {{ $item->price }}   
+            </td>
+            <td>
+
+               <img width="130px" height="150px" src="{{ $item->image }}" alt="">    
+            </td>
+          
             <td>
                 <form action="{{ route('products.destroy',$item->id) }}" method="post">
                     <a class="btn btn-primary" href="{{ route('products.edit',$item->id) }}">Sửa</a>
