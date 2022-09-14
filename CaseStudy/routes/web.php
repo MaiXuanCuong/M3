@@ -14,6 +14,7 @@ use App\Http\Controllers\CategoriesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [CategoriesController::class,'home'])->name('/');
 Route::prefix('categories')->group(function(){
     Route::get('/', [CategoriesController::class,'index'])->name('categories');
     Route::get('/add', [CategoriesController::class,'create'])->name('categories.add');

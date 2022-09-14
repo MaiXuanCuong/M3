@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Session;
 class CategoriesController extends Controller
 {
     //
+    public function home(){
+
+        // $items = Category::all();
+        // return view('index',compact('items'));
+        return view('index');
+    }
     public function index(){
         $items = Category::all();
         return view('admin.categories.index', compact('items'));
