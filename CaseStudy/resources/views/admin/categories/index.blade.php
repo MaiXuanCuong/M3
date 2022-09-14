@@ -55,7 +55,7 @@
                     <a class="btn btn-primary" href="{{ route('categories.edit',$item->id) }}">Sửa</a>
                     @csrf
                     @method('delete')
-                    <button class="btn btn-danger" type="submit">Xóa</button>
+                    <button class="btn btn-danger" onclick="return confirm('Bạn Chắc Chắn Xóa {{ $item->name }}')" type="submit">Xóa</button>
                 </form>
             </td>
         </tr>
