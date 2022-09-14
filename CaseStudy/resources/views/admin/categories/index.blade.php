@@ -34,7 +34,7 @@
             <tr>
                 
                 <td><i>STT</i></td>
-                <td><i>Name</i></td>
+                <td><i>Tên Danh Mục</i></td>
                 <td><i>Thao Tác</i></td>
                 
             </tr>

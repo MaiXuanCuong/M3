@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use RealRashid\SweetAlert\Facades\Aler;
+
 class CategoriesController extends Controller
 {
     //
@@ -28,7 +29,12 @@ class CategoriesController extends Controller
         $categories = new Category();
         $categories->name = $request->name;
         $categories->save();
-        Session::flash('success', 'Thêm thành công '.$request->name);
+        // Session::flash('success', 'Thêm thành công '.$request->name);
+        if($categories->save()){
+            alert()->success('Thêm Danh Mục','Thành Công');
+        } else {
+            alert()->error('Thêm Danh Mục', 'Không Thành Công!');
+        }
         return redirect()->route('categories');
     }
     public function edit($id){
@@ -39,11 +45,26 @@ class CategoriesController extends Controller
         $item = Category::find($id);
         $item->name = $request->name;
         $item->save();
+        if($item->save()){
+            alert()->success('Lưu Danh Mục',' Thành Công');
+            // alert('Title','Lorem Lorem Lorem', 'success');
+            // alert()->info('Title','Lorem Lorem Lorem');
+            // alert()->warning('Title','Lorem Lorem Lorem');
+            // alert()->question('Title','Lorem Lorem Lorem');
+            // alert()->html('<i>HTML</i> <u>example</u>'," You can use <b>bold text</b>, <a href='//github.com'>links</a> and other HTML tags ",'success');
+        } else {
+            alert()->error('Lưu Danh Mục', 'Không Thành Công!');
+        }
         return redirect()->route('categories');
     }
     public function destroy($id){
         $item = Category::findOrFail($id);
         $item->delete();
+        if(!$item->delete()){
+            alert()->success('Xóa Danh Mục', 'Thành Công');
+        } else {
+            alert()->error('Xóa Danh Mục', 'Không Thành Công!');
+        }
         return redirect()->route('categories');
     }
 }
