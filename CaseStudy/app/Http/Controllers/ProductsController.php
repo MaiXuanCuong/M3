@@ -58,16 +58,16 @@ class ProductsController extends Controller
         $products->garbage_can = 1;
         $products->category_id = $request->category_id;
         $products->save();
-        // if($products->save()){
-            // alert()->success('Thêm Sản Phẩm: '.$request->name, 'Thành Công');
+        if($products->save()){
+            alert()->success('Thêm Sản Phẩm: '.$request->name, 'Thành Công');
         // }
         //  Session::flash('success', 'Thêm thành công '.$request->name);
         return redirect()->route('products');
-    // } else {
-        // alert()->error('Thêm Sản Phẩm: '.$request->name, 'Không Thành Công!');
+    } else {
+        alert()->error('Thêm Sản Phẩm: '.$request->name, 'Không Thành Công!');
         // return redirect()->route('products.add');
     }
-    // }
+    }
     public function edit($id){
         $item = Product::find($id);
         $categories = Category::all();
@@ -104,9 +104,9 @@ class ProductsController extends Controller
         $products->save();
         // Session::flash('success', 'Chỉnh sửa thành công '.$request->name);
         if($products->save()){
-            // alert()->success('Lưu Sản Phẩm: '.$request->name, 'Thành Công');
+            alert()->success('Lưu Sản Phẩm: '.$request->name, 'Thành Công');
         } else {
-            // alert()->error('Lưu Sản Phẩm: '.$request->name, 'Không Thành Công!');
+            alert()->error('Lưu Sản Phẩm: '.$request->name, 'Không Thành Công!');
         }
         return redirect()->route('products');
     }
@@ -115,14 +115,14 @@ class ProductsController extends Controller
         $images = str_replace('storage' , 'public', $item->image );;
         // dd($images);
         Storage::delete($images);
-        $item->delete();
-
-        // Session::flash('success', 'Xóa thành công '.$item->name);
-        if(!$item->delete()){
-            // alert()->success('Xóa Sản Phẩm: '.$item->name, 'Thành Công');
-        } else {
-            // alert()->error('Xóa Sản Phẩm: '.$item->name, 'Không Thành Công!');
+        try {
+            $item->delete();
+            alert()->success('Xóa Sản Phẩm: '.$item->name, 'Thành Công');
+        } catch (\Exception $e) {
+            alert()->error('Xóa Sản Phẩm: '.$item->name, 'Không Thành Công!');
+            return redirect()->route('products');
         }
+        // Session::flash('success', 'Xóa thành công '.$item->name);
         return redirect()->route('products');
     }
 }

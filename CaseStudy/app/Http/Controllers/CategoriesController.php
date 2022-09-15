@@ -52,9 +52,9 @@ class CategoriesController extends Controller
         $categories->save();
         // Session::flash('success', 'Thêm thành công '.$request->name);
         if($categories->save()){
-            // alert()->success('Thêm Danh Mục: '.$request->name,'Thành Công');
+            alert()->success('Thêm Danh Mục: '.$request->name,'Thành Công');
         } else {
-            // alert()->error('Thêm Danh Mục: '.$request->name, 'Không Thành Công!');
+            alert()->error('Thêm Danh Mục: '.$request->name, 'Không Thành Công!');
         }
         return redirect()->route('categories');
     }
@@ -67,25 +67,32 @@ class CategoriesController extends Controller
         $item->name = $request->name;
         $item->save();
         if($item->save()){
-            // alert()->success('Lưu Danh Mục: '.$request->name,' Thành Công');
+            alert()->success('Lưu Danh Mục: '.$request->name,' Thành Công');
             // alert('Title','Lorem Lorem Lorem', 'success');
             // alert()->info('Title','Lorem Lorem Lorem');
             // alert()->warning('Title','Lorem Lorem Lorem');
             // alert()->question('Title','Lorem Lorem Lorem');
             // alert()->html('<i>HTML</i> <u>example</u>'," You can use <b>bold text</b>, <a href='//github.com'>links</a> and other HTML tags ",'success');
         } else {
-            // alert()->error('Lưu Danh Mục: '.$request->name, 'Không Thành Công!');
+            alert()->error('Lưu Danh Mục: '.$request->name, 'Không Thành Công!');
         }
         return redirect()->route('categories');
     }
     public function destroy($id){
         $item = Category::findOrFail($id);
+        try {
         $item->delete();
-        if(!$item->delete()){
-            // alert()->success('Xóa Danh Mục: '.$item->name, 'Thành Công');
-        } else {
-            // alert()->error('Xóa Danh Mục: '.$item->name, 'Không Thành Công!');
+
+            if(!$item->delete()){
+                alert()->success('Xóa Danh Mục: '.$item->name, 'Thành Công');
+            }
+        } catch (\Exception $e) {
+            alert()->error('Xóa Danh Mục: '.$item->name, 'Không Thành Công!');
+            return redirect()->route('categories');
+
         }
+         
+        
         return redirect()->route('categories');
     }
 }

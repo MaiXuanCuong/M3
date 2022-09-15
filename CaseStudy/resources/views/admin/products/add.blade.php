@@ -63,7 +63,7 @@
                       <label for="inputTitle">Mô Tả</label>
                      <textarea class="form-control"
                      id="inputTitle"
-                     name="describe" cols="30" rows="5">{{ old('describe')}}"</textarea>
+                     name="describe" cols="30" rows="5">{{ old('describe')}}</textarea>
                      @error('describe')
                      <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
