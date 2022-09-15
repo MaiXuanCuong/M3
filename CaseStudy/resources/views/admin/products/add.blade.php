@@ -30,7 +30,11 @@
                        class="form-control"
                        id="inputTitle"
                        name="name"
-                       required>
+                       value="{{ old('name') }}"
+                       >
+                       @error('name')
+                       <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
                     </div>
                     <div class="form-group">
                       <label for="inputTitle">Danh Mục</label>
@@ -45,33 +49,45 @@
                     </div>
                     <div class="form-group">
                       <label for="inputTitle">Giá</label>
-                      <input type="text"
+                      <input type="number"
                             class="form-control"
                             id="inputTitle"
                             name="price"
-                            required>
+                            value="{{ old('price') }}"
+                            >
+                            @error('price')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                   </div>
                     <div class="form-group">
                       <label for="inputTitle">Mô Tả</label>
                      <textarea class="form-control"
                      id="inputTitle"
-                     name="describe" cols="30" rows="5"></textarea>
-                            
+                     name="describe" cols="30" rows="5">{{ old('describe')}}"</textarea>
+                     @error('describe')
+                     <div class="alert alert-danger">{{ $message }}</div>
+                 @enderror
                   </div>
                   <div class="form-group">
                     <label for="inputTitle">Thông Số Kỹ Thuật</label>
                   <textarea  class="form-control"
                   id="inputTitle"
-                  name="specifications" cols="30" rows="5"></textarea>
-                         
+                  name="specifications" cols="30" rows="5">{{ old('describe')}}</textarea>
+                  @error('specifications')
+                  <div class="alert alert-danger">{{ $message }}</div>
+              @enderror
                 </div>
                 <div class="form-group">
                   <label for="inputTitle">Số Lượng</label>
-                  <input type="text"
+                  <input type="number"
                         class="form-control"
                         id="inputTitle"
                         name="quantity"
-                        required>
+                        value="{{ old('quantity') }}"
+                        >
+                        @error('quantity')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
               </div>
     <div class="form-group">
       <label for="inputTitle">Màu Sắc</label>
@@ -79,7 +95,11 @@
              class="form-control"
              id="inputTitle"
              name="color"
-             required>
+             value="{{ old('color') }}"
+             >
+             @error('color')
+             <div class="alert alert-danger">{{ $message }}</div>
+         @enderror
   </div>
   <div class="form-group">
     <label for="inputTitle">Cấu Hình</label>
@@ -87,7 +107,11 @@
            class="form-control"
            id="inputTitle"
            name="configuration"
-           required>
+           value="{{ old('configuration') }}"
+           >
+           @error('configuration')
+           <div class="alert alert-danger">{{ $message }}</div>
+       @enderror
           </div>
   <div class="form-group">
     <label for="inputTitle">Giá Theo Cấu Hình</label>
@@ -95,14 +119,24 @@
            class="form-control"
            id="inputTitle"
            name="price_product"
-           required>
+           value="{{ old('price_product') }}"
+           >
+           @error('price_product')
+           <div class="alert alert-danger">{{ $message }}</div>
+       @enderror
 </div>
 <div class="form-group">
   <label for="inputTitle">Ảnh Sản Phẩm</label>
   <input type="file"
   class="form-control-file"
   id="inputFile"
-  name="inputFile">
+  name="inputFile"
+  value="{{ old('inputFile') }}"
+  >
+
+  @error('inputFile')
+  <div class="alert alert-danger">{{ $message }}</div>
+@enderror
 </div>
 
 

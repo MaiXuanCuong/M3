@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Aler;
+use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
+
 class ProductsController extends Controller
 {
     //
@@ -23,9 +26,9 @@ class ProductsController extends Controller
         return view('admin.products.add', compact('categories'));
     }
     
-    public function store(Request $request){
-        $array = $request->toArray();
-        if(count($array) == 11){
+    public function store(StoreProductRequest $request){
+        // $array = $request->toArray();
+        // if(count($array) == 11){
             // dd($request->toArray());
         
         $products = new Product();
@@ -55,22 +58,22 @@ class ProductsController extends Controller
         $products->garbage_can = 1;
         $products->category_id = $request->category_id;
         $products->save();
-        if($products->save()){
-            alert()->success('Thêm Sản Phẩm: '.$request->name, 'Thành Công');
-        }
+        // if($products->save()){
+            // alert()->success('Thêm Sản Phẩm: '.$request->name, 'Thành Công');
+        // }
         //  Session::flash('success', 'Thêm thành công '.$request->name);
         return redirect()->route('products');
-    } else {
-        alert()->error('Thêm Sản Phẩm: '.$request->name, 'Không Thành Công!');
-        return redirect()->route('products.add');
+    // } else {
+        // alert()->error('Thêm Sản Phẩm: '.$request->name, 'Không Thành Công!');
+        // return redirect()->route('products.add');
     }
-    }
+    // }
     public function edit($id){
         $item = Product::find($id);
         $categories = Category::all();
         return view('admin.products.edit',compact('item','categories'));
     }
-    public function update(Request $request, $id){
+    public function update(UpdateProductRequest $request, $id){
         // dd($request->name);
         
         $products = Product::find($id);
@@ -101,9 +104,9 @@ class ProductsController extends Controller
         $products->save();
         // Session::flash('success', 'Chỉnh sửa thành công '.$request->name);
         if($products->save()){
-            alert()->success('Lưu Sản Phẩm: '.$request->name, 'Thành Công');
+            // alert()->success('Lưu Sản Phẩm: '.$request->name, 'Thành Công');
         } else {
-            alert()->error('Lưu Sản Phẩm: '.$request->name, 'Không Thành Công!');
+            // alert()->error('Lưu Sản Phẩm: '.$request->name, 'Không Thành Công!');
         }
         return redirect()->route('products');
     }
@@ -116,9 +119,9 @@ class ProductsController extends Controller
 
         // Session::flash('success', 'Xóa thành công '.$item->name);
         if(!$item->delete()){
-            alert()->success('Xóa Sản Phẩm: '.$item->name, 'Thành Công');
+            // alert()->success('Xóa Sản Phẩm: '.$item->name, 'Thành Công');
         } else {
-            alert()->error('Xóa Sản Phẩm: '.$item->name, 'Không Thành Công!');
+            // alert()->error('Xóa Sản Phẩm: '.$item->name, 'Không Thành Công!');
         }
         return redirect()->route('products');
     }

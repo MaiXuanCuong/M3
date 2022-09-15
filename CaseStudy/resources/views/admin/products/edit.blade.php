@@ -32,7 +32,10 @@
                        id="inputTitle"
                        name="name"
                        value="{{$item->name}}"
-                       required>
+                       >
+                       @error('name')
+                       <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
                     </div>
                     <div class="form-group">
                       <label for="inputTitle">Danh Mục</label>
@@ -47,33 +50,45 @@
                     </div>
                     <div class="form-group">
                       <label for="inputTitle">Giá</label>
-                      <input type="text"
+                      <input type="number"
                             class="form-control"
                             id="inputTitle"
                             name="price"
                             value="{{$item->price}}"
-                            required>
+                            >
+                            @error('price')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                   </div>
                     <div class="form-group">
                       <label for="inputTitle">Mô Tả</label>
                     <textarea class="form-control"
                     id="inputTitle"
                     name="describe" cols="30" rows="5">{{$item->describe}}</textarea>
+                    @error('describe')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
                   </div>
                   <div class="form-group">
                     <label for="inputTitle">Thông Số Kỹ Thuật</label>
                     <textarea  class="form-control"
                     id="inputTitle"
                     name="specifications" cols="30" rows="5">{{$item->specifications}}</textarea>
+                    @error('specifications')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
                 </div>
                 <div class="form-group">
                   <label for="inputTitle">Số Lượng</label>
-                  <input type="text"
+                  <input type="number"
                         class="form-control"
                         id="inputTitle"
                         name="quantity"
                         value="{{$item->quantity}}"
-                        required>
+                        >
+                        @error('quantity')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
               </div>
     <div class="form-group">
       <label for="inputTitle">Màu Sắc</label>
@@ -82,7 +97,10 @@
              id="inputTitle"
              name="color"
              value="{{$item->color}}"
-             required>
+             >
+             @error('color')
+             <div class="alert alert-danger">{{ $message }}</div>
+         @enderror
   </div>
   <div class="form-group">
     <label for="inputTitle">Cấu Hình</label>
@@ -91,7 +109,9 @@
            id="inputTitle"
            name="configuration"
            value="{{$item->configuration}}"
-           required>
+           >  @error('configuration')
+           <div class="alert alert-danger">{{ $message }}</div>
+       @enderror
 
           </div>
   <div class="form-group">
@@ -101,7 +121,10 @@
            id="inputTitle"
            name="price_product"
            value="{{$item->price_product}}"
-           required>
+           >
+           @error('price_product')
+           <div class="alert alert-danger">{{ $message }}</div>
+       @enderror
 </div>
 <div class="form-group">
   <label for="inputTitle">Ảnh Sản Phẩm</label>
@@ -110,6 +133,9 @@
   id="inputFile"
   value="{{$item->image}}"
   name="inputFile">
+  @error('inputFile')
+  <div class="alert alert-danger">{{ $message }}</div>
+@enderror
 </div>
 <div>
   

@@ -30,7 +30,10 @@
                        class="form-control"
                        id="inputTitle"
                        name="name"
-                       required>
+                       >
+                       @error('name')
+                       <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
             </div>
            
             <button type="submit" class="btn btn-primary">Thêm</button>
