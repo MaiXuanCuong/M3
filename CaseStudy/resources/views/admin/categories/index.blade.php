@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="flex-center position-ref full-height">
-    <div class="content">
+    <div class="content container">
         <div class="title m-b-md">
             <h1>Danh Mục</h1>
             <a class="btn btn-primary" href="{{ route('categories.add') }}">Thêm Danh Mục</a>
@@ -30,12 +30,12 @@
         @endif
         </div>
         <br>
-        <table style="text-align: center" class="table table-dark table-hover">
+        <table style="text-align: center; background-color: rgba(238, 255, 0, 0.184)" class="table table-bordered table-customize">
             <tr>
                 
-                <td><i>STT</i></td>
-                <td><i>Tên Danh Mục</i></td>
-                <td><i>Thao Tác</i></td>
+                <th><i>STT</i></th>
+                <th><i>Tên Danh Mục</i></th>
+                <th><i>Thao Tác</i></th>
                 
             </tr>
         @foreach($items as $key => $item)
@@ -43,19 +43,19 @@
         <tr>
 
             <td>
-                {{ $key + 1 }}   
+                <i>{{ $key + 1 }}  </i> 
 
             </td>
             <td>
 
-                {{ $item->name }}   
+              <i>  {{ $item->name }}   </i>
             </td>
             <td>
                 <form action="{{ route('categories.destroy',$item->id) }}" method="post">
-                    <a class="btn btn-primary" href="{{ route('categories.edit',$item->id) }}">Sửa</a>
+                    <i><a class="btn btn-primary" href="{{ route('categories.edit',$item->id) }}">Sửa</a></i>
                     @csrf
                     @method('delete')
-                    <button class="btn btn-danger" onclick="return confirm('Bạn Chắc Chắn Xóa {{ $item->name }}')" type="submit">Xóa</button>
+                  <button class="btn btn-danger" onclick="return confirm('Bạn Chắc Chắn Xóa {{ $item->name }}')" type="submit">  <i>Xóa</i></button>
                 </form>
             </td>
         </tr>

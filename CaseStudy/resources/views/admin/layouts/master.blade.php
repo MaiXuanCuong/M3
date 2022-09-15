@@ -46,6 +46,7 @@
     <link rel="stylesheet" href="{{ asset('admin/assets/stylesheets/theme.min.css')}}" data-skin="default">
     <link rel="stylesheet" href="{{ asset('admin/assets/stylesheets/theme-dark.min.css') }}" data-skin="dark">
     <link rel="stylesheet" href="{{ asset('admin/assets/stylesheets/custom.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
     <script>
       var skin = localStorage.getItem('skin') || 'default';
       var disabledSkinStylesheet = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');
@@ -55,10 +56,14 @@
       // add loading class to html immediately
       document.querySelector('html').classList.add('loading');
     </script><!-- END THEME STYLES -->
+    <style>
+      
+    </style>
   </head>
-  <body>
+  <body style="background-color: rgba(172, 233, 255, 0.252)">
     <!-- .app -->
-    <div class="app">
+    <div  > 
+      {{-- class="app" --}}
       <!--[if lt IE 10]>
       <div class="page-message" role="alert">You are using an <strong>outdated</strong> browser. Please <a class="alert-link" href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</div>
       <![endif]-->

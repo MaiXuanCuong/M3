@@ -1,4 +1,4 @@
-<aside class="app-aside app-aside-expand-md app-aside-light">
+<aside class="app-aside app-aside-expand-md app-aside-blue">
     <!-- .aside-content -->
     <div class="aside-content">
       <!-- .aside-header -->

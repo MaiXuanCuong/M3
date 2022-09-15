@@ -1,4 +1,4 @@
-<header class="app-header app-header-dark">
+<header class="app-header app-header-blue">
     <!-- .top-bar -->
     <div class="top-bar">
       <!-- .top-bar-brand -->
@@ -23,7 +23,7 @@
           <button class="hamburger hamburger-squeeze" type="button" data-toggle="aside" aria-label="toggle menu"><span class="hamburger-box"><span class="hamburger-inner"></span></span></button> <!-- /toggle menu -->
         </div><!-- /.top-bar-item -->
         <!-- .top-bar-item -->
-        <div class="top-bar-item top-bar-item-full">
+        <div >
           <!-- .top-bar-search -->
           <form class="top-bar-search">
             <!-- .input-group -->
