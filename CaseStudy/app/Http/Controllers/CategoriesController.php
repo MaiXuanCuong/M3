@@ -31,9 +31,9 @@ class CategoriesController extends Controller
         $categories->save();
         // Session::flash('success', 'Thêm thành công '.$request->name);
         if($categories->save()){
-            alert()->success('Thêm Danh Mục','Thành Công');
+            alert()->success('Thêm Danh Mục: '.$request->name,'Thành Công');
         } else {
-            alert()->error('Thêm Danh Mục', 'Không Thành Công!');
+            alert()->error('Thêm Danh Mục: '.$request->name, 'Không Thành Công!');
         }
         return redirect()->route('categories');
     }
@@ -46,14 +46,14 @@ class CategoriesController extends Controller
         $item->name = $request->name;
         $item->save();
         if($item->save()){
-            alert()->success('Lưu Danh Mục',' Thành Công');
+            alert()->success('Lưu Danh Mục: '.$request->name,' Thành Công');
             // alert('Title','Lorem Lorem Lorem', 'success');
             // alert()->info('Title','Lorem Lorem Lorem');
             // alert()->warning('Title','Lorem Lorem Lorem');
             // alert()->question('Title','Lorem Lorem Lorem');
             // alert()->html('<i>HTML</i> <u>example</u>'," You can use <b>bold text</b>, <a href='//github.com'>links</a> and other HTML tags ",'success');
         } else {
-            alert()->error('Lưu Danh Mục', 'Không Thành Công!');
+            alert()->error('Lưu Danh Mục: '.$request->name, 'Không Thành Công!');
         }
         return redirect()->route('categories');
     }
@@ -61,9 +61,9 @@ class CategoriesController extends Controller
         $item = Category::findOrFail($id);
         $item->delete();
         if(!$item->delete()){
-            alert()->success('Xóa Danh Mục', 'Thành Công');
+            alert()->success('Xóa Danh Mục: '.$item->name, 'Thành Công');
         } else {
-            alert()->error('Xóa Danh Mục', 'Không Thành Công!');
+            alert()->error('Xóa Danh Mục: '.$item->name, 'Không Thành Công!');
         }
         return redirect()->route('categories');
     }
