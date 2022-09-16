@@ -49,14 +49,16 @@ class CategoriesController extends Controller
         
         $categories = new Category();
         $categories->name = $request->name;
-        $categories->save();
+        
         // Session::flash('success', 'Thêm thành công '.$request->name);
-        if($categories->save()){
+        try {
+            $categories->save();
             alert()->success('Thêm Danh Mục: '.$request->name,'Thành Công');
-        } else {
+            return redirect()->route('categories');
+        } catch (\Exception $e) {
             alert()->error('Thêm Danh Mục: '.$request->name, 'Không Thành Công!');
+            return view('admin.categories.add',compact('request'));
         }
-        return redirect()->route('categories');
     }
     public function edit($id){
         $item = Category::find($id);

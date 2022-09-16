@@ -32,7 +32,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="inputTitle">Tên Danh Mục</label>
-                        <input type="text" class="form-control" id="inputTitle" name="name">
+                        <input type="text" class="form-control" id="inputTitle" name="name" value="{{ $request->name ?? old('name') }}">
                         @error('name')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

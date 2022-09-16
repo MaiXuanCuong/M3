@@ -127,19 +127,16 @@
        @enderror
 </div>
 <div class="form-group">
-  <label for="inputTitle">Ảnh Sản Phẩm</label>
-  <input type="file"
-  class="form-control-file"
-  id="inputFile"
-  value="{{$item->image}}"
-  name="inputFile">
+  <label for="inputTitle">Ảnh Sản Phẩm</label><br>
+  <input accept="image/*" type='file' id="imgInp" name="inputFile" /><br><br>
+  <img type="hidden" width="90px" height="90px" id="blah1" src="{{ asset($item->image) ?? $request->inputFile}}" alt="" /> <br>
   @error('inputFile')
   <div class="alert alert-danger">{{ $message }}</div>
 @enderror
 </div>
 <div>
   
-  <img width="100px" height="130px" src="{{ asset($item->image) }}" alt="">
+  {{-- <img width="100px" height="130px" src="{{ asset($item->image) }}" alt=""> --}}
 </div>
             <button type="submit" class="btn btn-primary">Lưu</button>
             <a class="btn btn-danger btn-xs" href="{{ route('products') }}">Hủy</a>

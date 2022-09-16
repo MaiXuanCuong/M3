@@ -31,8 +31,9 @@
       }
       
     </script><!-- End SEO tag -->
+    
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
-
+    
     <!-- FAVICONS -->
     <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/apple-touch-icon.png') }}">
     <link rel="shortcut icon" href="{{ asset('assets/favicon.ico') }}">
@@ -106,6 +107,23 @@
         gtag('js', new Date());
         gtag('config', 'UA-116692175-1');
     </script>
+     <script>
+      jQuery(document).ready(function() {
+        if( $('#blah').hide()){
+          $('#blah').hide();
+        }
+          jQuery('#imgInp').change(function() {
+              $('#blah').show();
+              const file = jQuery(this)[0].files;
+              if (file[0]) {
+                  jQuery('#blah').attr('src', URL.createObjectURL(file[0]));
+                  jQuery('#blah1').attr('src', URL.createObjectURL(file[0]));
+              }
+          });
+      });
+      
+  </script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 
 </html>

@@ -94,7 +94,7 @@ class ProductsController extends Controller
         $products->name = $request->name;
         $products->price = $request->price;
         $products->describe = $request->describe;
-        $products->configuration = $request->configuration;
+        $products->configuratio = $request->configuration;
 
         // dd($request);
         $products->quantity = $request->quantity;
@@ -109,13 +109,12 @@ class ProductsController extends Controller
             $path = 'storage/' . $request->file($fieldName)->storeAs('public/images', $fileName);
             $path = str_replace('public/', '', $path);
             $products->image = $path;
-            $item = Product::findOrFail($id);
-            if (isset($item->image)) {
-                $images = str_replace('storage', 'public', $item->image);
-                Storage::delete($images);
-            }
+          
         }
-
+        $item = Product::findOrFail($id);
+        if (isset($item->image)) {
+            $images = str_replace('storage', 'public', $item->image);
+        }
         $products->color = $request->color;
         $products->price_product = $request->price_product;
         $products->garbage_can = 1;
@@ -124,12 +123,16 @@ class ProductsController extends Controller
         // Session::flash('success', 'Chỉnh sửa thành công '.$request->name);
         try {
             $products->save();
+            Storage::delete($images);
             alert()->success('Lưu Sản Phẩm: ' . $request->name, 'Thành Công');
             return redirect()->route('products');
 
         } catch (\Exception$e) {
+            // $products = Product::find($id);
+            $images = $images = str_replace('storage', 'public', $path);
+            Storage::delete($images);
             alert()->error('Lưu Sản Phẩm: ' . $request->name, 'Không Thành Công!');
-            return redirect()->route('products.edit');
+            return redirect()->route('products.edit',$products->id);
         }
         return redirect()->route('products');
     }
