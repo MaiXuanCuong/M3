@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   </head>
   <body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   </body>
 </html>
@@ -17,6 +18,20 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
+  <script type="text/javascript">
+    function readURL(input) {
+	if (input.files && input.files[0]) {
+	    var reader = new FileReader();
+	    reader.onload = function(e) {
+   	        $('#imgSrc').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);            
+        }
+    }
+    $("#imgUpload").change(function() {
+        readURL(this);  
+    });
+</script>
 <div class="flex-center position-ref full-height">
     <div class="content">
         <div class="title m-b-md">
@@ -126,14 +141,15 @@
        @enderror
 </div>
 <div class="form-group">
-  <label for="inputTitle">Ảnh Sản Phẩm</label>
-  <input type="file"
+  <label for="inputTitle">Ảnh Sản Phẩm</label><br>
+  {{-- <input type="file"
   class="form-control-file"
   id="inputFile"
   name="inputFile"
   value="{{ old('inputFile') }}"
-  >
-
+  > --}}
+  <input accept="image/*" type='file' id="imgInp" name="inputFile" /><br><br>
+  <img type="hidden" width="90px" height="90px" id="blah" src="{{ old('inputFile') }}" alt="" /> <br>
   @error('inputFile')
   <div class="alert alert-danger">{{ $message }}</div>
 @enderror
@@ -157,6 +173,19 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+        <script>
+          jQuery(document).ready(function() {
+              $('#blah').hide();
+              jQuery('#imgInp').change(function() {
+                  $('#blah').show();
+                  const file = jQuery(this)[0].files;
+                  if (file[0]) {
+                      jQuery('#blah').attr('src', URL.createObjectURL(file[0]));
+                  }
+              });
+          });
+          
+      </script>
 </body>
 </html>
 
