@@ -65,18 +65,19 @@ class CategoriesController extends Controller
     public function update(StoreCategoryRequest $request, $id){
         $item = Category::find($id);
         $item->name = $request->name;
-        $item->save();
-        if($item->save()){
+        try {
+            $item->save();
             alert()->success('Lưu Danh Mục: '.$request->name,' Thành Công');
-            // alert('Title','Lorem Lorem Lorem', 'success');
+            return redirect()->route('categories');
+             // alert('Title','Lorem Lorem Lorem', 'success');
             // alert()->info('Title','Lorem Lorem Lorem');
             // alert()->warning('Title','Lorem Lorem Lorem');
             // alert()->question('Title','Lorem Lorem Lorem');
             // alert()->html('<i>HTML</i> <u>example</u>'," You can use <b>bold text</b>, <a href='//github.com'>links</a> and other HTML tags ",'success');
-        } else {
+        } catch (\Exception $e) {
             alert()->error('Lưu Danh Mục: '.$request->name, 'Không Thành Công!');
+            return redirect()->route('categories.edit',$item->id);
         }
-        return redirect()->route('categories');
     }
     public function destroy($id){
         $item = Category::findOrFail($id);

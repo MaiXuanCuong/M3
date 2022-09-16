@@ -13,9 +13,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   </body>
 </html>
-
-    <!-- CSS -->
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css"> --}}
 </head>
 <body>
   <script type="text/javascript">
@@ -45,7 +42,7 @@
                        class="form-control"
                        id="inputTitle"
                        name="name"
-                       value="{{ old('name') }}"
+                       value="{{ $request->name ?? old('name') }}"
                        >
                        @error('name')
                        <div class="alert alert-danger">{{ $message }}</div>
@@ -68,7 +65,7 @@
                             class="form-control"
                             id="inputTitle"
                             name="price"
-                            value="{{ old('price') }}"
+                            value="{{ $request->price ?? old('price') }}"
                             >
                             @error('price')
                             <div class="alert alert-danger">{{ $message }}</div>
@@ -78,7 +75,7 @@
                       <label for="inputTitle">Mô Tả</label>
                      <textarea class="form-control"
                      id="inputTitle"
-                     name="describe" cols="30" rows="5">{{ old('describe')}}</textarea>
+                     name="describe" cols="30" rows="5">{{ $request->describe ?? old('describe')}}</textarea>
                      @error('describe')
                      <div class="alert alert-danger">{{ $message }}</div>
                  @enderror
@@ -87,7 +84,7 @@
                     <label for="inputTitle">Thông Số Kỹ Thuật</label>
                   <textarea  class="form-control"
                   id="inputTitle"
-                  name="specifications" cols="30" rows="5">{{ old('describe')}}</textarea>
+                  name="specifications" cols="30" rows="5">{{$request->specifications ?? old('describe')}}</textarea>
                   @error('specifications')
                   <div class="alert alert-danger">{{ $message }}</div>
               @enderror
@@ -98,7 +95,7 @@
                         class="form-control"
                         id="inputTitle"
                         name="quantity"
-                        value="{{ old('quantity') }}"
+                        value="{{$request->quantity ?? old('quantity') }}"
                         >
                         @error('quantity')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -110,7 +107,7 @@
              class="form-control"
              id="inputTitle"
              name="color"
-             value="{{ old('color') }}"
+             value="{{ $request->color ?? old('color') }}"
              >
              @error('color')
              <div class="alert alert-danger">{{ $message }}</div>
@@ -122,7 +119,7 @@
            class="form-control"
            id="inputTitle"
            name="configuration"
-           value="{{ old('configuration') }}"
+           value="{{$request->configuration ?? old('configuration') }}"
            >
            @error('configuration')
            <div class="alert alert-danger">{{ $message }}</div>
@@ -134,7 +131,7 @@
            class="form-control"
            id="inputTitle"
            name="price_product"
-           value="{{ old('price_product') }}"
+           value="{{ $request->price_product ?? old('price_product') }}"
            >
            @error('price_product')
            <div class="alert alert-danger">{{ $message }}</div>
@@ -142,14 +139,8 @@
 </div>
 <div class="form-group">
   <label for="inputTitle">Ảnh Sản Phẩm</label><br>
-  {{-- <input type="file"
-  class="form-control-file"
-  id="inputFile"
-  name="inputFile"
-  value="{{ old('inputFile') }}"
-  > --}}
   <input accept="image/*" type='file' id="imgInp" name="inputFile" /><br><br>
-  <img type="hidden" width="90px" height="90px" id="blah" src="{{ old('inputFile') }}" alt="" /> <br>
+  <img type="hidden" width="90px" height="90px" id="blah" src="{{$request->inputFile ??  old('inputFile') }}" alt="" /> <br>
   @error('inputFile')
   <div class="alert alert-danger">{{ $message }}</div>
 @enderror
