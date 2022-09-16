@@ -60,9 +60,9 @@
       
     </style>
   </head>
-  <body style="background-color: rgba(172, 233, 255, 0.252)">
+  <body style="background-color: rgba(172, 233, 255, 0.111)">
     <!-- .app -->
-    <div  > 
+    <div > 
       {{-- class="app" --}}
       <!--[if lt IE 10]>
       <div class="page-message" role="alert">You are using an <strong>outdated</strong> browser. Please <a class="alert-link" href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</div>

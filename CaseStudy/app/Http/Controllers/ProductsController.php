@@ -95,6 +95,11 @@ class ProductsController extends Controller
             $path = 'storage/' . $request->file($fieldName)->storeAs('public/images', $fileName);
             $path = str_replace('public/', '',$path);
             $products->image = $path;
+            $item = Product::findOrFail($id);
+            if(isset($item->image)){
+                $images = str_replace('storage' , 'public', $item->image );
+                Storage::delete($images);
+            }
         } 
 
         $products->color = $request->color;

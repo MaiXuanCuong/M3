@@ -30,13 +30,12 @@
         @endif
         </div>
         <br>
-        <table style="text-align: center; background-color: rgba(238, 255, 0, 0.184)" class="table table-bordered table-customize">
+        <table style="text-align: center; background-color: rgba(139, 249, 245, 0)" class="table-hover">
             <tr>
                 
-                <th><i>STT</i></th>
-                <th><i>Tên Danh Mục</i></th>
-                <th><i>Thao Tác</i></th>
-                
+                <th width="30%"><i>STT</i></th>
+                <th width="60%"><i>Tên Danh Mục</i></th>
+                <th width="30%"><i>Thao Tác</i></th>
             </tr>
         @foreach($items as $key => $item)
          

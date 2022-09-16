@@ -30,17 +30,17 @@
         @endif
         </div>
         <br>
-        <table style="text-align: center ;background-color: white" class="table ">
+        <table style="text-align: center ;background-color: rgba(255, 255, 255, 0)" class="table-hover ">
             <tr>
                 
-                <th><i>STT</i></td>
-                <th><i>Sản Phẩm</i></th>
-                <th><i>Danh Mục</i></th>
-                <th><i>Giá</i></th>
-                <th><i>Ảnh</i></th>
-                <th><i>Thao Tác</i></th>
-                
+                <th ><i>STT</i> <hr></td>
+                <th width="30%" ><i>Sản Phẩm</i> <hr></th>
+                <th width="10%"><i>Danh Mục</i> <hr></th>
+                <th width="15%"><i>Giá</i> <hr></th>
+                <th width="30%"><i>Ảnh</i> <hr></th>
+                <th width="20%"><i>Thao Tác</i> <hr></th>
             </tr>
+            
         @foreach($items as $key => $item)
          
         <tr>
@@ -73,8 +73,11 @@
                     @method('delete')
                     <button class="btn btn-danger" onclick="return confirm('Bạn Chắc Chắn Xóa {{ $item->name }}')" type="submit"><i>Xóa</i></button>
                 </form>
+                
             </td>
+            
         </tr>
+        
         @endforeach
     </table>
     </div>
