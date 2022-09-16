@@ -59,8 +59,8 @@ class ProductsController extends Controller
         $products->category_id = $request->category_id;
         $products->save();
         if($products->save()){
-            // alert()->success('Thêm Sản Phẩm: '.$request->name, 'Thành Công');
-            toast('Your Post as been submited!','success','top-right');
+            alert()->success('Thêm Sản Phẩm: '.$request->name, 'Thành Công');
+            // toast('Your Post as been submited!','success','top-right');
         // }
         //  Session::flash('success', 'Thêm thành công '.$request->name);
         return redirect()->route('products');

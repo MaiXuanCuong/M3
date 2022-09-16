@@ -14,7 +14,7 @@
 </html>
 
     <!-- CSS -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css"> --}}
 </head>
 <body>
 <div class="flex-center position-ref full-height">
