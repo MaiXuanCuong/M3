@@ -2,6 +2,21 @@
 @section('title', 'Danh sách khách hàng')
 
 @section('content')
+<div class="col-6">
+    <form class="navbar-form navbar-left" action="">
+        @csrf
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+            </div>
+            <div class="col-4">
+                <button type="submit" class="btn btn-default">Tìm kiếm</button>
+            </div>
+        </div>
+    </form>
+</div>
     <div class="col-12">
         <div class="row">
             <div class="col-12">
@@ -63,10 +78,12 @@
                     @endforeach
                 @endif
                 </tbody>
+                
             </table>
+           
             <a class="btn btn-primary" href="{{ route('customers.create') }}">Thêm mới</a>
         </div>
-
+        {{ $customers->appends(request()->query()) }}
         <!-- Modal -->
         <div class="modal fade" id="cityModal" role="dialog">
             <div class="modal-dialog modal-lg">
