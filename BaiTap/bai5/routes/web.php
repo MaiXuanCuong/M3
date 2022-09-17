@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
 use App\Http\Controllers\CustomerController;
 
 /*
@@ -24,4 +25,12 @@ Route::group(['prefix' => 'customers'], function () {
     Route::get('/{id}/edit', [CustomerController::class, 'edit'])->name('customers.edit');
     Route::post('/{id}/edit', [CustomerController::class, 'update'])->name('customers.update');
     Route::get('/{id}/destroy', [CustomerController::class, 'destroy'])->name('customers.destroy');
+});
+Route::group(['prefix' => 'tasks'], function () {
+    Route::get('/', [TaskController::class, 'index'])->name('tasks.index');
+    Route::get('/create', [TaskController::class, 'create'])->name('tasks.create');
+    Route::post('/create', [TaskController::class, 'store'])->name('tasks.store');
+    Route::get('/{id}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
+    Route::post('/{id}/edit', [TaskController::class, 'update'])->name('tasks.update');
+    Route::get('/{id}/destroy', [TaskController::class, 'destroy'])->name('tasks.destroy');
 });
