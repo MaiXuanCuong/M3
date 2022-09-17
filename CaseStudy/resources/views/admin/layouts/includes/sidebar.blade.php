@@ -1,4 +1,4 @@
-<aside class="app-aside app-aside-expand-md app-aside-blue">
+<aside style="background-color: rgba(172, 233, 255, 0.111)" class="app-aside app-aside-expand-md app-aside-blue">
     <!-- .aside-content -->
     <div class="aside-content">
       <!-- .aside-header -->
@@ -22,11 +22,11 @@
           <ul class="menu">
             <!-- .menu-item -->
             <li class="menu-item">
-              <a href="index.html" class="menu-link"><span class="menu-icon fas fa-home"></span> <span class="menu-text">Dashboard</span></a>
+              <a href="{{ route('/') }}" class="menu-link"><span class="menu-icon fas fa-home"></span> <span class="menu-text">Trang Chủ</span></a>
             </li><!-- /.menu-item -->
             <!-- .menu-item -->
             <li class="menu-item has-child">
-              <a href="#" class="menu-link"><span class="menu-icon far fa-file"></span> <span class="menu-text">App Pages</span> <span class="badge badge-warning">New</span></a> <!-- child menu -->
+              <a href="#" class="menu-link"><span class="menu-icon far fa-file"></span> <span class="menu-text">Admin</span> <span class="badge badge-warning">New</span></a> <!-- child menu -->
               <ul class="menu">
                 <li class="menu-item">
                   <a href="page-clients.html" class="menu-link">Clients</a>
@@ -174,46 +174,46 @@
                 </li>
               </ul><!-- /child menu -->
             </li><!-- /.menu-item -->
-            <!-- .menu-item -->
-            <li class="menu-item has-active has-child">
-              <a href="#" class="menu-link"><span class="menu-icon oi oi-browser"></span> <span class="menu-text">Layouts</span> <span class="badge badge-subtle badge-success">+4</span></a> <!-- child menu -->
-              <ul class="menu">
-                <li class="menu-item has-active">
-                  <a href="layout-blank.html" class="menu-link">Blank Page</a>
-                </li>
-                <li class="menu-item">
-                  <a href="layout-nosearch.html" class="menu-link">Header no Search</a>
-                </li>
-                <li class="menu-item">
-                  <a href="layout-horizontal-menu.html" class="menu-link">Horizontal Menu</a>
-                </li>
-                <li class="menu-item">
-                  <a href="layout-fullwidth.html" class="menu-link">Full Width</a>
-                </li>
-                <li class="menu-item">
-                  <a href="layout-pagenavs.html" class="menu-link">Page Navs</a>
-                </li>
-                <li class="menu-item">
-                  <a href="layout-pagecover.html" class="menu-link">Page Cover</a>
-                </li>
-                <li class="menu-item">
-                  <a href="layout-pagecover-img.html" class="menu-link">Cover Image</a>
-                </li>
-                <li class="menu-item">
-                  <a href="layout-pagesidebar.html" class="menu-link">Page Sidebar</a>
-                </li>
-                <li class="menu-item">
-                  <a href="layout-pagesidebar-fluid.html" class="menu-link">Sidebar Fluid</a>
-                </li>
-                <li class="menu-item">
-                  <a href="layout-pagesidebar-hidden.html" class="menu-link">Sidebar Hidden</a>
-                </li>
-                <li class="menu-item">
-                  <a href="layout-custom.html" class="menu-link">Custom</a>
-                </li>
-              </ul><!-- /child menu -->
-            </li><!-- /.menu-item -->
-            <!-- .menu-item -->
+        <!-- .menu-item -->
+        <li class="menu-item has-child">
+          <a href="#" class="menu-link"><span class="menu-icon oi oi-browser"></span> <span class="menu-text">Quản Lý Sản Phẩm</span> <span class="badge badge-subtle badge-success">+4</span></a> <!-- child menu -->
+          <ul class="menu">
+            <li class="menu-item">
+              <a href="{{ route('categories') }}" class="menu-link">Danh Mục</a>
+            </li>
+            <li class="menu-item">
+              <a href="{{ route('products') }}" class="menu-link">Sản Phẩm</a>
+            </li>
+            <li class="menu-item">
+              <a href="layout-horizontal-menu.html" class="menu-link">Thùng Rác</a>
+            </li>
+            {{-- <li class="menu-item">
+              <a href="layout-fullwidth.html" class="menu-link">Full Width</a>
+            </li>
+            <li class="menu-item">
+              <a href="layout-pagenavs.html" class="menu-link">Page Navs</a>
+            </li>
+            <li class="menu-item">
+              <a href="layout-pagecover.html" class="menu-link">Page Cover</a>
+            </li>
+            <li class="menu-item">
+              <a href="layout-pagecover-img.html" class="menu-link">Cover Image</a>
+            </li>
+            <li class="menu-item">
+              <a href="layout-pagesidebar.html" class="menu-link">Page Sidebar</a>
+            </li>
+            <li class="menu-item">
+              <a href="layout-pagesidebar-fluid.html" class="menu-link">Sidebar Fluid</a>
+            </li>
+            <li class="menu-item">
+              <a href="layout-pagesidebar-hidden.html" class="menu-link">Sidebar Hidden</a>
+            </li>
+            <li class="menu-item">
+              <a href="layout-custom.html" class="menu-link">Custom</a>
+            </li> --}}
+          </ul><!-- /child menu -->
+        </li><!-- /.menu-item -->
+        <!-- .menu-item -->
             <li class="menu-item">
               <a href="landing-page.html" class="menu-link"><span class="menu-icon fas fa-rocket"></span> <span class="menu-text">Landing Page</span></a>
             </li><!-- /.menu-item -->
@@ -367,8 +367,10 @@
         </nav><!-- /.stacked-menu -->
       </div><!-- /.aside-menu -->
       <!-- Skin changer -->
-      <footer class="aside-footer border-top p-2">
-        <button class="btn btn-light btn-block text-primary" data-toggle="skin"><span class="d-compact-menu-none">Night mode</span> <i class="fas fa-moon ml-1"></i></button>
+      <footer style="text-align: center" class="aside-footer border-top p-2">
+        {{-- <button class="btn btn-light btn-block text-primary" data-toggle="skin"><span class="d-compact-menu-none">Night mode</span> <i class="fas fa-moon ml-1"></i></button> --}}
+        <h3>Trang Quản lý</h3><br>
+        <h5>By Admin</h5>
       </footer><!-- /Skin changer -->
     </div><!-- /.aside-content -->
   </aside>

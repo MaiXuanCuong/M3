@@ -61,7 +61,7 @@
   
 </head>
 
-<body style="background-color: rgba(172, 233, 255, 0.111)">
+<body >
     <!-- .app -->
     <div>
         {{-- class="app" --}}
