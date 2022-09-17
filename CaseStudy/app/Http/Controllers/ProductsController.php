@@ -13,7 +13,7 @@ class ProductsController extends Controller
     public function index()
     {
         // $items = Product::all();
-        $items = Product::paginate(3);
+        $items = Product::paginate(5);
 
         // dd($items[0]->category->name);
         // $items = Product::all();
@@ -94,7 +94,7 @@ class ProductsController extends Controller
         $products->name = $request->name;
         $products->price = $request->price;
         $products->describe = $request->describe;
-        $products->configuratio = $request->configuration;
+        $products->configuration = $request->configuration;
 
         // dd($request);
         $products->quantity = $request->quantity;
