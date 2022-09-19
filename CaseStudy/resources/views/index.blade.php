@@ -22,7 +22,7 @@
         <div class="title m-b-md">
         </div>
         <br>
-        
+        <a class="btn btn-primary" href="{{ route('admin.logout') }}">Đăng Xuất</a>
         {{-- <table style="text-align: center" class="table table-dark table-hover">
             <tr>
                 

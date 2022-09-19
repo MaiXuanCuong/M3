@@ -59,7 +59,7 @@
         document.querySelector('html').classList.add('loading');
     </script><!-- END THEME STYLES -->
   
-</head>
+
 
 <body >
     <!-- .app -->

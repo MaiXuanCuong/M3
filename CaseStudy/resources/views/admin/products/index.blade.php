@@ -26,6 +26,7 @@
         <div class="title m-b-md">
             <h1>Sản Phẩm</h1>
             <a class="btn btn-primary" href="{{ route('products.add') }}">Thêm Sản Phẩm</a>
+            <a class="btn btn-danger" href="{{ route('products.deleted') }}">Thùng rác</a>
             @if (Session::has('success'))
             <p class="text-success">
                 <i class="fa fa-check" aria-hidden="true"></i>
@@ -87,7 +88,7 @@
         
     </div>
 </div>
-{{ $items->onEachSide(5)->links() }}
+{{ $items->appends(request()->all())->links() }}
 <!-- Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
