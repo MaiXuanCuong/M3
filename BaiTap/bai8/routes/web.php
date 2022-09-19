@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,5 @@ Route::get('/login', [LoginController::class,'showLogin'])->name('show.login');
 Route::post('/login', [LoginController::class,'login'])->name('user.login');
 Route::get('/blog', [BlogController::class, 'showBlog'])->name('show.blog');
 Route::get('/logout', [LogoutController::class, 'logout'])->name('user.logout');
+Route::get('products', [ProductController::class, 'index'])->name('index');
+Route::get('products/{id}', [ProductController::class, 'show'])->name('show');
