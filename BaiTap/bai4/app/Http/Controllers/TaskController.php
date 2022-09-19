@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreTaskRequest;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
@@ -20,7 +21,7 @@ class TaskController extends Controller
         return view('add');
     }
 
-    public function store(Request $request)
+    public function store(StoreTaskRequest $request)
     {
         //Khởi tạo mới đối tượng task, gán các trường tương ứng với request gửi lên từ trình duyệt
         $task = new Task();

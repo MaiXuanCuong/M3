@@ -25,5 +25,6 @@ class UserController extends Controller
         return view('users.search', compact('user'));
     }
 }
+
     
 }

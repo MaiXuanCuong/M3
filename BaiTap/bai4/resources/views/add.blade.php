@@ -29,7 +29,12 @@
                        class="form-control"
                        id="inputTitle"
                        name="inputTitle"
-                       required>
+                       >
+                       @if($errors->has('inputTitle'))
+                       <div class="invalid-feedback">
+                           {{ $errors->first('title')  }}
+                       </div>
+                   @endif
             </div>
             <div class="form-group">
                 <label for="inputContent">Task content</label>
@@ -37,7 +42,12 @@
                           id="inputContent"
                           name="inputContent"
                           rows="3"
-                          required></textarea>
+                          ></textarea>
+                          @if($errors->has('inputContent'))
+                          <div class="invalid-feedback">
+                              {{ $errors->first('title')  }}
+                          </div>
+                      @endif
             </div>
             <div class="form-group">
                 <label for="inputDueDate">Due Date</label>
@@ -45,7 +55,12 @@
                        class="form-control"
                        id="inputDueDate"
                        name="inputDueDate"
-                       required>
+                       >
+                       @if($errors->has('title'))
+                       <div class="invalid-feedback">
+                           {{ $errors->first('inputDueDate')  }}
+                       </div>
+                   @endif
             </div>
             <div class="form-group">
                 <label for="inputFileName">File Name</label>
@@ -57,6 +72,11 @@
                        class="form-control-file"
                        id="inputFile"
                        name="inputFile">
+                       @if($errors->has('title'))
+                       <div class="invalid-feedback">
+                           {{ $errors->first('inputFile')  }}
+                       </div>
+                   @endif
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
