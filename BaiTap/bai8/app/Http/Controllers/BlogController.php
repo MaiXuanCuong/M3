@@ -12,7 +12,7 @@ class BlogController extends Controller
         if ($request->session()->has('login') && $request->session()->get('login')) {
 
             // Session login tồn tại và có giá trị là true, chuyển hướng người dùng đến trang blog
-            return view('blog');
+            return view('layouts.blog');
         }
 
         // Session không tồn tại, người dùng chưa đăng nhập
@@ -21,6 +21,6 @@ class BlogController extends Controller
         $request->session()->flash('not-login', $message);
 
         // Chuyển hướng về trang đăng nhập
-        return view('login');
+        return view('layouts.login');
     }
 }

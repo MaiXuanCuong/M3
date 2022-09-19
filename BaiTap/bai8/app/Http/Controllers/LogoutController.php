@@ -10,6 +10,6 @@ class LogoutController extends Controller
     {
         // Xóa Session login, đưa người dùng về trạng thái chưa đăng nhập
         $request->session()->flush();
-        return view('welcome');
+        return view('layouts.login');
     }
 }
