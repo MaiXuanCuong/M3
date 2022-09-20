@@ -2,128 +2,72 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><!-- End Required meta tags -->
-    <!-- Begin SEO tag -->
-    <title> Starter Template | Looper - Bootstrap 4 Admin Theme </title>
-    <meta property="og:title" content="Starter Template">
-    <meta name="author" content="Beni Arisandi">
-    <meta property="og:locale" content="en_US">
-    <meta name="description" content="Responsive admin theme build on top of Bootstrap 4">
-    <meta property="og:description" content="Responsive admin theme build on top of Bootstrap 4">
-    <link rel="canonical" href="https://uselooper.com">
-    <meta property="og:url" content="https://uselooper.com">
-    <meta property="og:site_name" content="Looper - Bootstrap 4 Admin Theme">
-    <script type="application/ld+json">
-      {
-        "name": "Looper - Bootstrap 4 Admin Theme",
-        "description": "Responsive admin theme build on top of Bootstrap 4",
-        "author":
-        {
-          "@type": "Person",
-          "name": "Beni Arisandi"
-        },
-        "@type": "WebSite",
-        "url": "",
-        "headline": "Starter Template",
-        "@context": "http://schema.org"
-      }
-      
-    </script><!-- End SEO tag -->
-    
-    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
-    
-    <!-- FAVICONS -->
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/apple-touch-icon.png') }}">
-    <link rel="shortcut icon" href="{{ asset('assets/favicon.ico') }}">
-    <meta name="theme-color" content="#3063A0"><!-- End FAVICONS -->
-    <!-- GOOGLE FONT -->
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600" rel="stylesheet"><!-- End GOOGLE FONT -->
-    <!-- BEGIN PLUGINS STYLES -->
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendor/open-iconic/font/css/open-iconic-bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}">
-    <!-- END PLUGINS STYLES -->
-    <!-- BEGIN THEME STYLES -->
-    <link rel="stylesheet" href="{{ asset('admin/assets/stylesheets/theme.min.css') }}" data-skin="default">
-    <link rel="stylesheet" href="{{ asset('admin/assets/stylesheets/theme-dark.min.css') }}" data-skin="dark">
-    <link rel="stylesheet" href="{{ asset('admin/assets/stylesheets/custom.css') }}">
-    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-    <script>
-        var skin = localStorage.getItem('skin') || 'default';
-        var disabledSkinStylesheet = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');
-        // Disable unused skin immediately
-        disabledSkinStylesheet.setAttribute('rel', '');
-        disabledSkinStylesheet.setAttribute('disabled', true);
-        // add loading class to html immediately
-        document.querySelector('html').classList.add('loading');
-    </script><!-- END THEME STYLES -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{{ asset('admin/assets/img/favicon.png')}}" rel="icon">
+  <link href="{{ asset('admin/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ asset('admin/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{ asset('admin/assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link href="{{ asset('admin/assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{ asset('admin/assets/vendor/quill/quill.snow.css')}}" rel="stylesheet">
+  <link href="{{ asset('admin/assets/vendor/quill/quill.bubble.css')}}" rel="stylesheet">
+  <link href="{{ asset('admin/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+  <link href="{{ asset('admin/assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ asset('admin/assets/css/style.css')}}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: NiceAdmin - v2.3.1
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  @include('admin.layouts.includes.header')
+  @include('admin.layouts.includes.sidebar')
+
+  <main id="main" class="main">
+    @include('sweetalert::alert')
+    @yield('content')
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
   
+  @include('admin.layouts.includes.footer')
+  <!-- End Footer -->
 
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-<body >
-    <!-- .app -->
-    <div>
-        {{-- class="app" --}}
-        <!--[if lt IE 10]>
-      <div class="page-message" role="alert">You are using an <strong>outdated</strong> browser. Please <a class="alert-link" href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</div>
-      <![endif]-->
-        <!-- .app-header -->
-        @include('admin.layouts.includes.header')
-        <!-- /.app-header -->
-        <!-- .app-aside -->
+  <!-- Vendor JS Files -->
+  <script src="{{ asset('admin/assets/vendor/apexcharts/apexcharts.min.js')}}"></script>
+  <script src="{{ asset('admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ asset('admin/assets/vendor/chart.js')}}/chart.min.js')}}"></script>
+  <script src="{{ asset('admin/assets/vendor/echarts/echarts.min.js')}}"></script>
+  <script src="{{ asset('admin/assets/vendor/quill/quill.min.js')}}"></script>
+  <script src="{{ asset('admin/assets/vendor/simple-datatables/simple-datatables.js')}}"></script>
+  <script src="{{ asset('admin/assets/vendor/tinymce/tinymce.min.js')}}"></script>
+  <script src="{{ asset('admin/assets/vendor/php-email-form/validate.js')}}"></script>
 
-        @include('admin.layouts.includes.sidebar')
-        <!-- /.app-aside -->
-        <!-- .app-main -->
-        <main class="app-main">
-            <!-- .wrapper -->
-            <div class="container">
-              
-                @include('sweetalert::alert')
-                @yield('content')
-                <!-- /.wrapper -->
-            </div>
-        </main><!-- /.app-main -->
-    </div><!-- /.app -->
-    <!-- BEGIN BASE JS -->
-    <script src="{{ asset('admin/assets/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('admin/assets/vendor/popper.js/umd/popper.min.js') }}"></script>
-    <script src="{{ asset('admin/assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script> <!-- END BASE JS -->
-    <!-- BEGIN PLUGINS JS -->
-    <script src="{{ asset('admin/assets/vendor/pace-progress/pace.min.js') }}"></script>
-    <script src="{{ asset('admin/assets/vendor/stacked-menu/js/stacked-menu.min.js') }}"></script>
-    <script src="{{ asset('admin/assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script> <!-- END PLUGINS JS -->
-    <!-- BEGIN THEME JS -->
-    <script src="{{ asset('admin/assets/javascript/theme.min.js') }}"></script> <!-- END THEME JS -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+  <!-- Template Main JS File -->
+  <script src="{{ asset('admin/assets/js/main.js')}}"></script>
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'UA-116692175-1');
-    </script>
-     <script>
-      jQuery(document).ready(function() {
-        if( $('#blah').hide()){
-          $('#blah').hide();
-        }
-          jQuery('#imgInp').change(function() {
-              $('#blah').show();
-              const file = jQuery(this)[0].files;
-              if (file[0]) {
-                  jQuery('#blah').attr('src', URL.createObjectURL(file[0]));
-                  jQuery('#blah1').attr('src', URL.createObjectURL(file[0]));
-              }
-          });
-      });
-      
-  </script>
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 
 </html>

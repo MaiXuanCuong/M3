@@ -56,6 +56,7 @@ class AdminController extends Controller
     }
     public function logout(){
         Auth::logout();
+        toast('Đăng Xuất Thành Công!','success','top-right');
         return redirect()->route('login');
     }
     public function checkLogin(){
@@ -65,5 +66,6 @@ class AdminController extends Controller
             return view('admin.login');
         }
     }
-    
+    //check mật khẩu
+    //Hash::check($request->password,$item->pasword)
 }

@@ -1,32 +1,6 @@
 @extends('admin.layouts.master')
 @section('content')
-    <!doctype html>
-    <html lang="en">
-
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     </head>
-
-    <body>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
-        </script>
-      <style>
-        hr {
-          color: blue;
-        }
-      </style>
-    </body>
-
-    </html>
-
-    <!-- CSS -->
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css"> --}}
-    </head>
-
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content container">
@@ -43,21 +17,16 @@
                 <br>
                 <table style="text-align: center; background-color: rgba(139, 249, 245, 0)" class="table-hover table border-primary">
                     <tr>
-
                         <th width="30%"><i>STT</i></th>
                         <th width="60%"><i>Tên Danh Mục</i></th>
                         <th width="30%"><i>Thao Tác</i></th>
-                        
                     </tr>
                     @foreach ($items as $key => $item)
                         <tr>
-
                             <td>
                                 <i>{{ $key + 1 }} </i>
-
                             </td>
                             <td>
-
                                 <i> {{ $item->name }} </i>
                             </td>
                             <td>
@@ -87,6 +56,5 @@
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
         </script>
     </body>
-
     </html>
 @endsection
