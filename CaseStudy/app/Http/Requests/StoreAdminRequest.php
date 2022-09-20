@@ -26,7 +26,8 @@ class StoreAdminRequest extends FormRequest
         $rules =[
             'name' => 'required|min:3',
             'email' => 'required',
-            'phone' => 'required',
+            'address' => 'required',
+            'phone' => 'required|min:9',
             'password' => 'required|min:6',
             'password1' => 'required|min:6',
             
@@ -38,7 +39,9 @@ class StoreAdminRequest extends FormRequest
                 'name.required' => 'Hãy Nhập Họ Và Tên Của Bạn',
                 'name.min' => 'Hãy Nhập Tên Sản Phẩm Lớn Hơn 3 Ký Tự',
                 'email.required' => 'Hãy Nhập Email Của Bạn',
+                'address.required' => 'Hãy Nhập Địa Chỉ Của Bạn',
                 'phone.required' => 'Hãy Nhập Số Điện Thoại Của Bạn',
+                'phone.min' => 'Hãy Nhập Số Điện Thoại Lớn Hơn 9 Ký Tự',
                 'password.min' => 'Hãy Nhập Mật Khẩu Lớn Hơn 6 Ký Tự',
                 'password.required' => 'Hãy Nhập Mật Khẩu Của Bạn',
                 'password1.min' => 'Hãy Nhập Mật Khẩu Lớn Hơn 6 Ký Tự',

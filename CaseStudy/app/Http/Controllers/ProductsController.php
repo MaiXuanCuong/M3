@@ -116,7 +116,7 @@ class ProductsController extends Controller
           
         }
         $item = Product::findOrFail($id);
-        if (isset($item->image)) {
+        if (isset($item->image) && isset($path)) {
             $images = str_replace('storage', 'public', $item->image);
         }
         $products->color = $request->color;
@@ -127,7 +127,9 @@ class ProductsController extends Controller
         // Session::flash('success', 'Chỉnh sửa thành công '.$request->name);
         try {
             $products->save();
-            Storage::delete($images);
+            if(isset($path)){
+                Storage::delete($images);
+            }
             alert()->success('Lưu Sản Phẩm: ' . $request->name, 'Thành Công');
             return redirect()->route('products');
 

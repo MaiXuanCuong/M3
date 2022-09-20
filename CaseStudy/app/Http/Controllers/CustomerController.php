@@ -80,6 +80,10 @@ class CustomerController extends Controller
         $customer->email = $request->email;
         $customer->phone = $request->phone;
         $customer->password = $request->password;
+        if($customer->email == $request->email){
+            alert()->error('Email '.$request->email.' Đã Tồn Tại', 'Sửa Không Thành Công!');
+            return redirect()->route('customers.edit',$customer->id);
+        }
         try {
             $customer->save();
             alert()->success('Lưu Customer: '.$request->name,' Thành Công');
