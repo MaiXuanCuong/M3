@@ -125,7 +125,8 @@
 </div>
 <div class="form-group">
   <label for="inputTitle">Ảnh Sản Phẩm</label><br>
-  <input accept="image/*" type='file' id="imgInp" name="inputFile" /><br><br>
+  {{-- <input accept="image/*" type='file' id="imgInp" name="inputFile[]"  multiple/><br><br> --}}
+  <input accept="image/*" type='file' id="imgInp" name="inputFile"/><br><br>
   <img type="hidden" width="90px" height="90px" id="blah" src="" alt="" /> <br>
   @error('inputFile')
   <div class="alert alert-danger">{{ $message }}</div>
