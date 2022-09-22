@@ -147,12 +147,17 @@ class ProductsController extends Controller
         $item = Product::findOrFail($id);
        
         try {
+            // alert()->question('Bạn Có Chắc Chăn Xóa','Sản Phẩm '.$item->name);
             $item->delete();
-            alert()->success('Xóa Sản Phẩm: ' . $item->name, 'Thành Công');
+            // alert()->success('Xóa Sản Phẩm: ' . $item->name, 'Thành Công');
+            toast('Xóa Sản Phẩm: '.$item->name.' Thành Công','success','top-right');
+
+
             return redirect()->route('products');
 
         } catch (\Exception$e) {
-            alert()->error('Xóa Sản Phẩm: ' . $item->name, 'Không Thành Công!');
+            // alert()->error('Xóa Sản Phẩm: ' . $item->name, 'Không Thành Công!');
+            toast('Xóa Sản Phẩm: '.$item->name.'Không Thành Công','success','top-right');
             return redirect()->route('products');
         }
         // Session::flash('success', 'Xóa thành công '.$item->name);
@@ -168,10 +173,12 @@ class ProductsController extends Controller
         try {
             $item = Product::withTrashed()->where('id', $id)->restore();
             $item = Product::findOrFail($id);
-            alert()->success('Khôi Phục Sản Phẩm: ' . $item->name, 'Thành Công');
+            // alert()->success('Khôi Phục Sản Phẩm: ' . $item->name, 'Thành Công');
+            toast('Khôi Phục Sản Phẩm: '.$item->name.' Thành Công','success','top-right');
             return redirect()->route('products.deleted');
         } catch (\Exception$e) {
-            alert()->error('Khôi Phục Sản Phẩm: ' . $item->name, 'Không Thành Công!');
+            // alert()->error('Khôi Phục Sản Phẩm: ' . $item->name, 'Không Thành Công!');
+            toast('Khôi Phục Sản Phẩm: '.$item->name.'Không Thành Công','error','top-right');
             return redirect()->route('products.deleted');
         }
         //Xoá record vĩnh viễn: App\User::withTrashed()->where('id', 1)->forceDelete();
