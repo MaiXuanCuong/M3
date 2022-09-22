@@ -181,15 +181,47 @@
 
         var haserror = false;
 
-        if(name == "" || phone == "" || email == "" || password == "" || address == ""){
-            $('#nameError').html('Vui Lòng Nhập Tên');
-            $('#phoneError').html('Hãy Nhập số Điện Thoại');
-            $('#emailError').html('Hãy Nhập email');
-            $('#passwordError').html('Hãy Nhập Mật Khẩu');
-            $('#addressError').html('Hãy Nhập Địa Chỉ');
-            haserror = true;
-        }
+    if(name == ""){
+        $('#nameError').html('Vui Lòng Nhập Tên');
+        haserror = true;
+    }
+    if(phone == ""){
+        $('#phoneError').html('Hãy Nhập số Điện Thoại');
+        haserror = true;
+    }
+    if(email == ""){
+        $('#emailError').html('Hãy Nhập email');
+        haserror = true;
+    }
+    if(address == ""){
+        $('#addressError').html('Hãy Nhập Địa Chỉ');
+        haserror = true;
+    }
+    if(password == ""){
+        $('#passwordError').html('Hãy Nhập Mật Khẩu');
+        haserror = true;
+    }
+        if(haserror == true){
+            $('#completeModal').keyup('shown.bs.modal', function() {
+                if($('#name').val() != ""){
+                    $('#nameError').empty()
+                }
+                if($('#phone').val() != ""){
+                    $('#phoneError').empty()
+                }
+                if($('#email').val() != ""){
+                    $('#emailError').empty()
+                }
+                if($('#address').val() != ""){
+                    $('#addressError').empty()
+                }
+                if($('#password').val() != ""){
+                    $('#passwordError').empty()
+                }
 
+        })
+        List();
+        }
         if(haserror === false){
             $.ajax({
                 url: "add.php",
@@ -266,14 +298,27 @@
         var id = $('#show').val();
         console.log(password);
         var haserror = false;
-if(name == "" && phone == "" && email == "" && address == "" && password == ""){
-            $('#nameError1').html('Vui Lòng Nhập Tên');
-            $('#phoneError1').html('Hãy Nhập số Điện Thoại');
-            $('#emailError1').html('Hãy Nhập email');
-            $('#passwordError1').html('Hãy Nhập Mật Khẩu');
-            $('#addressError1').html('Hãy Nhập Địa Chỉ');
-    haserror = true;
-}
+    if(name == ""){
+        $('#nameError1').html('Vui Lòng Nhập Tên');
+        haserror = true;
+    }
+    if(phone == ""){
+        $('#phoneError1').html('Hãy Nhập số Điện Thoại');
+        haserror = true;
+    }
+    if(email == ""){
+        $('#emailError1').html('Hãy Nhập email');
+        haserror = true;
+    }
+    if(address == ""){
+        $('#addressError1').html('Hãy Nhập Địa Chỉ');
+        haserror = true;
+    }
+    if(password == ""){
+        $('#passwordError1').html('Hãy Nhập Mật Khẩu');
+        haserror = true;
+    }
+
 
 if(haserror === false){
         $.ajax({
