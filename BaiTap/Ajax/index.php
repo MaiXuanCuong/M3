@@ -97,9 +97,6 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title " id="exampleModalLabel">Thêm mới người dùng</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -136,7 +133,7 @@
 
                 </div>
             </div>
-        </div>
+        </div>  
     </div>
     <div class="container my-3">
         <h3 class="text-center">Thực Hành Ajax</h3>
@@ -171,16 +168,13 @@
             }
         })
     };
-
     function add() {
         var name = $('#name').val();
         var phone = $('#phone').val();
         var email = $('#email').val();
         var address = $('#address').val();
         var password = $('#password').val();
-
         var haserror = false;
-
     if(name == ""){
         $('#nameError').html('Vui Lòng Nhập Tên');
         haserror = true;
@@ -218,7 +212,6 @@
                 if($('#password').val() != ""){
                     $('#passwordError').empty()
                 }
-
         })
         List();
         }
@@ -241,14 +234,8 @@
             });
             alertify.success('Thêm mới thành công');
         }
-
-
-
     };
-
     function Delete(id) {
-
-
         $.ajax({
             url: "delete.php",
             type: "post",
@@ -263,9 +250,7 @@
         });
         alertify.success('Xóa thành công');
     }
-
     function Show(id) {
-      
         $('#show').val(id);
         var showid = id;
         $.ajax({
@@ -276,19 +261,15 @@
                 id: showid,
             },
             success: function(data, status) {
-                
                 $('#UpdateName').val(data.name);
                 $('#UpdatePhone').val(data.phone);
                 $('#UpdateEmail').val(data.email);
                 $('#UpdateAddress').val(data.address);
                 $('#UpdatePassword').val(data.password);
                 $('#updateModal').modal('show');
-
             }
         });
-
     };
-
     function update() {
         var name = $('#UpdateName').val();
         var phone = $('#UpdatePhone').val();
@@ -318,8 +299,6 @@
         $('#passwordError1').html('Hãy Nhập Mật Khẩu');
         haserror = true;
     }
-
-
 if(haserror === false){
         $.ajax({
             url: "update.php",
@@ -337,15 +316,11 @@ if(haserror === false){
                 console.log(data);
                 List();
                 $('#updateModal').modal('hide');
-
             }
         });
         alertify.success('Cập nhật thành công');
     }}
 </script>
-
-
-
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
