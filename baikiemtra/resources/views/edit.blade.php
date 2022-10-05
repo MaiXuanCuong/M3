@@ -28,9 +28,10 @@
         <label for="exampleFormControlInput1" class="form-label">Tác Giả</label>
 
          <select name="author_id" id="" class="form-control">
-                        @foreach ($authors as $author)
-                            <option value="{{ $author->id }}">{{ $author->name }}</option>
-                        @endforeach
+          @foreach ($authors as $author)
+          <option <?= $author->id == $item->author_id ? 'selected' : ' ' ?>
+              value="{{ $author->id }}">{{ $author->name }}</option>
+      @endforeach
                     </select>
                     @error('author_id')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -48,9 +49,10 @@
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Thể Loại</label>
         <select name="category_id" id="" class="form-control">
-            @foreach ($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->name }}</option>
-            @endforeach
+          @foreach ($categories as $category)
+          <option <?= $category->id == $item->category_id ? 'selected' : ' ' ?>
+              value="{{ $category->id }}">{{ $category->name }}</option>
+      @endforeach
         </select>
         @error('category_id')
         <div class="alert alert-danger">{{ $message }}</div>

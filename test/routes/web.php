@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('hai', function () {
-//     return view('welcome');
-// });
+Route::get('/',[Controller::class,"index"] );
 // Route::get('index3', function () {
 //     // gọi view retrn view
 
