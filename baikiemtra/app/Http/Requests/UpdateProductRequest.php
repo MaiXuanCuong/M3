@@ -26,7 +26,7 @@ class UpdateProductRequest extends FormRequest
       $year =  date("Y");
         $rules =[
             'name' => 'required',
-            'ISBN' => 'required|numeric|min:20',
+            'ISBN' => 'required|numeric|min:min:10000000000000000000',
             'author_id' => 'required',
             'category_id' => 'required',
             'pages' => 'required|numeric',
