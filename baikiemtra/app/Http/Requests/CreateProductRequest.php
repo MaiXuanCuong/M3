@@ -26,7 +26,7 @@ class CreateProductRequest extends FormRequest
       $year =  date("Y");
         $rules =[
             'name' => 'required',
-            'ISBN' => 'required|numeric|min:10000000000000000000',
+            'ISBN' => 'required|numeric|min:10000000000000000000|max:99999999999999999999',
             'author_id' => 'required',
             'category_id' => 'required',
             'pages' => 'required|numeric',
@@ -40,6 +40,7 @@ class CreateProductRequest extends FormRequest
             'ISBN.required' => 'Hãy Nhập Mã ISBN',
             'ISBN.numeric' => 'Hãy Nhập Số',
             'ISBN.min' => 'Hãy Nhập Lớn 19 Chữ SỐ',
+            'ISBN.max' => 'Hãy Nhập bé hơn 21 Chữ SỐ',
             'author_id.required' => 'Hãy Chọn Tên Tác Giả',
             'category_id.required' => 'Hãy Chọn Tên Thể Loại',
             'pages.required' => 'Hãy Nhập Số Trang',
