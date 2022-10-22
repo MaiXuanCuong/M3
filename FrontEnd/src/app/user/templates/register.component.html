@@ -1,1 +1,52 @@
-<p>register works!</p>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <div class="fadeIn first">
+        <img src="../../../assets/image/user.png" id="icon" style="height: 20%; width: 20% ;" alt="User Icon" />
+      </div>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form-horizontal" novalidate autocomplete="off">
+        <input formControlName="name" type="text" id="name" class="fadeIn second" name="name" placeholder="user name"><br>
+        <small class="label label-danger"
+        *ngIf="!registerForm.controls['name']?.valid && (registerForm.controls['name']?.dirty
+        ||registerForm.controls['name']?.touched) && registerForm.controls['name']?.errors?.['required']"
+        class="help-block text-danger">Tên không được để trống!</small>
+
+        <input formControlName="email" type="text" id="email" class="fadeIn third" name="email" placeholder="email"><br>
+        <small class="label label-danger"
+        *ngIf="!registerForm.controls['email']?.valid && (registerForm.controls['email']?.dirty
+        ||registerForm.controls['email']?.touched) && registerForm.controls['email']?.errors?.['required']"
+        class="help-block text-danger">Email không được để trống!</small>
+
+        <small class="label label-danger"
+        *ngIf="!registerForm.controls['email']?.valid && (registerForm.controls['email']?.dirty
+        ||registerForm.controls['email']?.touched) && registerForm.controls['email']?.errors?.['email']"
+        class="help-block text-danger">Email không đúng định dạng!</small>
+
+        <input formControlName="password" type="text" id="password" class="fadeIn third" name="password" placeholder="password"><br>
+        <small class="label label-danger"
+        *ngIf="!registerForm.controls['password']?.valid && (registerForm.controls['password']?.dirty
+        ||registerForm.controls['password']?.touched) && registerForm.controls['password']?.errors?.['required']"
+        class="help-block text-danger">Password không được để trống!</small>
+
+        <small class="label label-danger"
+        *ngIf="!registerForm.controls['password']?.valid && (registerForm.controls['password']?.dirty
+        ||registerForm.controls['password']?.touched) && registerForm.controls['password']?.errors?.['minlength']"
+        class="help-block text-danger">Password tối thiểu 5 ký tự!</small>
+
+        <input formControlName="confirmPassword" type="text" id="confirmPassword" class="fadeIn third" name="confirmPassword" placeholder="confirmPassword"><br>
+        <small class="label label-danger"
+        *ngIf="!registerForm.controls['confirmPassword']?.valid && (registerForm.controls['confirmPassword']?.dirty
+        ||registerForm.controls['confirmPassword']?.touched) && registerForm.controls['confirmPassword']?.errors?.['required']"
+        class="help-block text-danger">ConfirmPassword không được để trống!</small>
+
+        <small class="label label-danger"
+        *ngIf="!registerForm.controls['password']?.valid && (registerForm.controls['password']?.dirty
+        ||registerForm.controls['password']?.touched) && registerForm.controls['password']?.errors?.['minlength']"
+        class="help-block text-danger">ConfirmPassword tối thiểu 5 ký tự!</small>
+
+        <input type="submit" [disabled]="!registerForm.valid" class="fadeIn fourth" value="Đăng Ký">
+      </form>
+      <div id="formFooter">
+        <button class="underlineHover btn btn-success mt-3" type="button" [routerLink]="['']" class="btn btn-success mt-3">Đã Có Tài KHoản? Đăng Nhập</button>
+      </div>
+    </div>
+  </div>

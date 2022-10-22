@@ -1,1 +1,34 @@
-<p>login works!</p>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <div class="fadeIn first">
+        <img src="../../../assets/image/user.png" id="icon" style="height: 20%; width: 20% ;" alt="User Icon" />
+      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-horizontal" novalidate autocomplete="off">
+        <input formControlName="email" type="text" id="email" class="fadeIn second" name="email" placeholder="email"><br>
+        <small class="label label-danger"
+        *ngIf="!loginForm.controls['email']?.valid && (loginForm.controls['email']?.dirty
+        ||loginForm.controls['email']?.touched) && loginForm.controls['email']?.errors?.['required']"
+        class="help-block text-danger">Email không được để trống!</small>
+        <small class="label label-danger"
+        *ngIf="!loginForm.controls['email']?.valid && (loginForm.controls['email']?.dirty
+        ||loginForm.controls['email']?.touched) && loginForm.controls['email']?.errors?.['email']"
+        class="help-block text-danger">Email không đúng địng dạng!</small>
+
+        <input formControlName="password" type="text" id="password" class="fadeIn third" name="password" placeholder="password"><br>
+        <small class="label label-danger"
+        *ngIf="!loginForm.controls['password']?.valid && (loginForm.controls['password']?.dirty
+        ||loginForm.controls['password']?.touched) && loginForm.controls['password']?.errors?.['required']"
+        class="help-block text-danger">Password không được để trống!</small>
+        <small class="label label-danger"
+        *ngIf="!loginForm.controls['password']?.valid && (loginForm.controls['password']?.dirty
+        ||loginForm.controls['password']?.touched) && loginForm.controls['password']?.errors?.['minlength']"
+        class="help-block text-danger">Password tối thiểu 5 ký tự!</small><br>
+        <input type="submit" [disabled]="!loginForm.valid" class="fadeIn fourth" value="Đăng Nhập">
+
+        
+      </form>
+      <div id="formFooter">
+        <button class="underlineHover btn btn-success mt-3" type="button" [routerLink]="['register']" class="btn btn-success mt-3">Chưa Có Tài Khoản? Đăng Ký</button>
+      </div>
+    </div>
+  </div>
