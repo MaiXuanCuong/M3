@@ -46,5 +46,11 @@ export class RegisterComponent implements OnInit {
       this._Router.navigate(['']);
       alert("Đăng ký Thành Công")
     });
+    this._UserService.login(User).subscribe(res =>{
+      localStorage.setItem('access_token', res.access_token);
+      this._Router.navigate(['profile']);
+      alert("Đăng Nhập Thành Công")
+    });
   }
+  
 }

@@ -3,13 +3,13 @@ import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User} from '../user';
-
 @Component({
   selector: 'user-login',
   templateUrl: './../templates/login.component.html',
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  error: any;
   constructor(
     private _Router: Router,
     private _UserService: UserService,
@@ -38,11 +38,12 @@ export class LoginComponent implements OnInit {
       password:data.password,
     }
     this._UserService.login(User).subscribe(res =>{
-      localStorage.setItem('access_token', res.access_token);
       console.log(res);
-      
-      this._Router.navigate(['profile']);
-      alert("Đăng Nhập Thành Công")
+        localStorage.setItem('access_token', res.access_token);
+        this._Router.navigate(['profile']);
+        alert("Đăng Nhập Thành Công")
+ 
+     
     });
   }
 }

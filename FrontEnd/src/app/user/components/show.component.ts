@@ -13,7 +13,6 @@ export class ShowComponent implements OnInit {
   id:any;
   name:any;
   email:any;
-
   constructor(
     private _UserService:UserService,
     private _ActivatedRoute:ActivatedRoute,
@@ -21,7 +20,7 @@ export class ShowComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if(this._UserService.checkAuth()){
+    if(this._UserService.checkAuth()) {
       this._ActivatedRoute.paramMap.subscribe(() => {
         this._UserService.profile().subscribe(res =>{
           this.id = res.id;

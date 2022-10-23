@@ -20,7 +20,7 @@ export class UserService {
     return this._HttpClient.post<User>(api_url+'/register',data);
   }
   login(data:User){
-    return this._HttpClient.post<{access_token: string}>(api_url+'/login',data,);
+    return this._HttpClient.post<{access_token: string}>(api_url+'/login',data);
   }
   
   profile():Observable<User>{

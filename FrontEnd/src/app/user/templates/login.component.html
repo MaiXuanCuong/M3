@@ -4,7 +4,7 @@
         <img src="../../../assets/image/user.png" id="icon" style="height: 20%; width: 20% ;" alt="User Icon" />
       </div>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-horizontal" novalidate autocomplete="off">
-        <input formControlName="email" type="text" id="email" class="fadeIn second" name="email" placeholder="email"><br>
+        <input formControlName="email" type="email" id="email" class="fadeIn second" name="email" placeholder="email"><br>
         <small class="label label-danger"
         *ngIf="!loginForm.controls['email']?.valid && (loginForm.controls['email']?.dirty
         ||loginForm.controls['email']?.touched) && loginForm.controls['email']?.errors?.['required']"
@@ -14,7 +14,7 @@
         ||loginForm.controls['email']?.touched) && loginForm.controls['email']?.errors?.['email']"
         class="help-block text-danger">Email không đúng địng dạng!</small>
 
-        <input formControlName="password" type="text" id="password" class="fadeIn third" name="password" placeholder="password"><br>
+        <input formControlName="password" type="password" id="password" class="fadeIn third" name="password" placeholder="password"><br>
         <small class="label label-danger"
         *ngIf="!loginForm.controls['password']?.valid && (loginForm.controls['password']?.dirty
         ||loginForm.controls['password']?.touched) && loginForm.controls['password']?.errors?.['required']"
