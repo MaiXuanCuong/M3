@@ -23,8 +23,8 @@
                                     ID                                                
                                 </strong>
                             </td>
-                            <td class="text-primary">
-                                {{ User.id }}  
+                            <td class="text-primary" >
+                                <b>{{ id }}</b>
                             </td>
                         </tr>
                         <tr>    
@@ -35,7 +35,7 @@
                                 </strong>
                             </td>
                             <td class="text-primary">
-                                {{ User.name }}    
+                                <b>{{ name }}   </b> 
                             </td>
                         </tr>
                         <tr>        
@@ -46,7 +46,7 @@
                                 </strong>
                             </td>
                             <td class="text-primary">
-                                {{ User.email }}    
+                               <b>{{ email }}    </b> 
                             </td>
                         </tr>
                     </tbody>
@@ -54,8 +54,6 @@
                 </div>
             </div>
         </div>
+        <button style="margin-left: 90%;" class="underlineHover btn btn-success mt-3" type="button" (click)="onSubmit()" class="btn btn-success mt-3">Đăng Xuất</button>
     </div>
-    <div id="formFooter">
-        <button class="underlineHover btn btn-success mt-3" type="button" (click)="onSubmit()" class="btn btn-success mt-3">Đăng Xuất</button>
-      </div>
     </div>                                   

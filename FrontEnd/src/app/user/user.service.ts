@@ -20,24 +20,9 @@ export class UserService {
     return this._HttpClient.post<User>(api_url+'/register',data);
   }
   login(data:User){
-    return this._HttpClient.post<{access_token:string}>(api_url+'/login',data);
+    return this._HttpClient.post<{access_token: string}>(api_url+'/login',data,);
   }
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // Get access_token from localStorage
-    const access_token = localStorage.getItem('access_token');
-
-    // Intercept every http request if the token exists
-    if (access_token) {
-      const cloned = req.clone({
-        //  Add token to header of http request
-        headers: req.headers.set('Authorization', 'Bearer '.concat(access_token))
-      });
-      return next.handle(cloned);
-    }
-    else {
-      return next.handle(req);
-    }
-  }
+  
   profile():Observable<User>{
     return this._HttpClient.get<User>(api_url+'/profile');
   }

@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if(!this._UserService.checkAuth()){
     this.loginForm = new FormGroup({
       'email':new FormControl('',[
         Validators.required,
@@ -26,6 +27,9 @@ export class LoginComponent implements OnInit {
         Validators.minLength(5)
       ]),
     })
+  } else {
+    this._Router.navigate(['profile']);
+  }
   }
   onSubmit():void{
     let data = this.loginForm.value;
@@ -33,7 +37,10 @@ export class LoginComponent implements OnInit {
       email:data.email,
       password:data.password,
     }
-    this._UserService.login(User).subscribe(()=>{
+    this._UserService.login(User).subscribe(res =>{
+      localStorage.setItem('access_token', res.access_token);
+      console.log(res);
+      
       this._Router.navigate(['profile']);
       alert("Đăng Nhập Thành Công")
     });

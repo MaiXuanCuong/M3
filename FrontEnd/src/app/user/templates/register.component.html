@@ -32,7 +32,7 @@
         ||registerForm.controls['password']?.touched) && registerForm.controls['password']?.errors?.['minlength']"
         class="help-block text-danger">Password tối thiểu 5 ký tự!</small>
 
-        <input formControlName="confirmPassword" type="text" id="confirmPassword" class="fadeIn third" name="confirmPassword" placeholder="confirmPassword"><br>
+        <!-- <input formControlName="confirmPassword" type="text" id="confirmPassword" class="fadeIn third" name="confirmPassword" placeholder="confirmPassword"><br>
         <small class="label label-danger"
         *ngIf="!registerForm.controls['confirmPassword']?.valid && (registerForm.controls['confirmPassword']?.dirty
         ||registerForm.controls['confirmPassword']?.touched) && registerForm.controls['confirmPassword']?.errors?.['required']"
@@ -41,7 +41,7 @@
         <small class="label label-danger"
         *ngIf="!registerForm.controls['password']?.valid && (registerForm.controls['password']?.dirty
         ||registerForm.controls['password']?.touched) && registerForm.controls['password']?.errors?.['minlength']"
-        class="help-block text-danger">ConfirmPassword tối thiểu 5 ký tự!</small>
+        class="help-block text-danger">ConfirmPassword tối thiểu 5 ký tự!</small> -->
 
         <input type="submit" [disabled]="!registerForm.valid" class="fadeIn fourth" value="Đăng Ký">
       </form>

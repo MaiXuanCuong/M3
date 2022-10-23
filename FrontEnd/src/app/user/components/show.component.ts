@@ -10,7 +10,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './../templates/show.component.html',
 })
 export class ShowComponent implements OnInit {
-  User!: User;
+  id:any= 0;
+  name:any= '';
+  email:any= '';
 
   constructor(
     private _UserService:UserService,
@@ -19,13 +21,20 @@ export class ShowComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this._ActivatedRoute.paramMap.subscribe(() => {
-      this._UserService.profile().subscribe(res =>{
-        this.User = res;
-      },e=>{
-        console.log(e);
+    if(this._UserService.checkAuth()){
+      this._ActivatedRoute.paramMap.subscribe(() => {
+        this._UserService.profile().subscribe(res =>{
+          this.id = res.id;
+          this.name = res.name;
+          this.email = res.email;
+        },e=>{
+          console.log(e);
+        })
       })
-    })
+    }
+    else{
+      this._Router.navigate(['']);
+    }
   }
   onSubmit(){
       this._UserService.logout();
