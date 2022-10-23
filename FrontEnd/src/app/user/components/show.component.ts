@@ -10,9 +10,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './../templates/show.component.html',
 })
 export class ShowComponent implements OnInit {
-  id:any= 0;
-  name:any= '';
-  email:any= '';
+  id:any;
+  name:any;
+  email:any;
 
   constructor(
     private _UserService:UserService,
