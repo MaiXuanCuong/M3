@@ -23,6 +23,11 @@
         *ngIf="!loginForm.controls['password']?.valid && (loginForm.controls['password']?.dirty
         ||loginForm.controls['password']?.touched) && loginForm.controls['password']?.errors?.['minlength']"
         class="help-block text-danger">Password tối thiểu 5 ký tự!</small><br>
+
+        <small class="label label-danger"
+        *ngIf="error"
+        class="help-block text-danger">Tài Khoản Or Mật Khẩu Không Đúng</small><br>
+
         <input type="submit" [disabled]="!loginForm.valid" class="fadeIn fourth" value="Đăng Nhập">
 
         

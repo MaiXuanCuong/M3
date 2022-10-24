@@ -38,12 +38,19 @@ export class LoginComponent implements OnInit {
       password:data.password,
     }
     this._UserService.login(User).subscribe(res =>{
-      console.log(res);
+      // console.log(res);
         localStorage.setItem('access_token', res.access_token);
         this._Router.navigate(['profile']);
         alert("Đăng Nhập Thành Công")
  
      
+    }, err => {
+      if(err.status === 401) {
+        alert("Đăng Nhập Không Thành Công");
+      }
+      // 
+      this.error = true;
+      
     });
   }
 }
